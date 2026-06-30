@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aluminum Luxury Decor Inc | Pergolas, Patios & Screen Enclosures — Miami, FL</title>
+  <meta name="description" content="Miami's premium aluminum pergola, insulated patio, screen enclosure, and patio room specialists. Serving Miami-Dade, Broward, and Palm Beach. Call (305) 308-5578 for a free quote.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aluminum Luxury Decor Inc | Miami Pergola & Patio Specialists">
+  <meta property="og:description" content="Custom aluminum pergolas, insulated patios, and screen enclosures built for South Florida. Free on-site estimate. Call (305) 308-5578.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_US">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231A4B8C'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='20' font-family='Georgia,serif' fill='white'>A</text></svg>">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://aluminumluxurydecorinc.com/">
+  <!-- CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self';">
+  <!-- Google Fonts: Cormorant Garamond + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════════ */
+    :root {
+      --white:        #FFFFFF;
+      --off-white:    #F7F9FC;
+      --navy:         #0E2238;
+      --blue:         #1A4B8C;
+      --blue-mid:     #2E73C4;
+      --blue-light:   #EBF2FB;
+      --steel:        #4A7BAB;
+      --gray-900:     #0F172A;
+      --gray-700:     #334155;
+      --gray-500:     #64748B;
+      --gray-300:     #CBD5E1;
+      --gray-200:     #E2E8F0;
+      --gray-100:     #F1F5F9;
+      --bronze:       #967A50;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, -apple-system, sans-serif;
+
+      /* Type scale */
+      --text-xs:    0.75rem;
+      --text-sm:    0.875rem;
+      --text-base:  1rem;
+      --text-lg:    1.125rem;
+      --text-xl:    1.25rem;
+      --text-2xl:   1.5rem;
+      --text-3xl:   1.875rem;
+      --text-4xl:   2.25rem;
+      --text-5xl:   3rem;
+
+      --radius-sm:  4px;
+      --radius:     8px;
+      --radius-lg:  16px;
+      --radius-xl:  24px;
+
+      --shadow-sm:  0 1px 3px rgba(14,34,56,0.07);
+      --shadow:     0 4px 16px rgba(14,34,56,0.10);
+      --shadow-lg:  0 12px 40px rgba(14,34,56,0.14);
+      --shadow-xl:  0 24px 64px rgba(14,34,56,0.18);
+
+      --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: 0.3s var(--ease);
+    }
+
+    /* ═══════════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--gray-900);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid var(--blue-mid); outline-offset: 3px; }
+
+    /* ═══════════════════════════════════════════════
+       COOKIE BANNER
+    ═══════════════════════════════════════════════ */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      z-index: 9999;
+      font-size: var(--text-sm);
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    #cookie-banner.hidden { display: none; }
+    #cookie-accept {
+      background: var(--blue-mid);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background var(--transition);
+    }
+    #cookie-accept:hover { background: var(--blue); }
+
+    /* ═══════════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+    #nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      box-shadow: var(--shadow-sm);
+      padding: 1rem 2rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      transition: color var(--transition);
+      line-height: 1.2;
+    }
+    .nav-logo span { display: block; font-size: var(--text-xs); font-family: var(--font-body); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
+    #nav.scrolled .nav-logo { color: var(--navy); }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      transition: color var(--transition);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    #nav.scrolled .nav-links a { color: var(--gray-700); }
+    .nav-links a:hover { color: var(--blue-mid); }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+      transition: all var(--transition);
+    }
+    #nav.scrolled .lang-toggle { background: var(--gray-100); border-color: var(--gray-200); }
+    .lang-btn {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.65);
+      cursor: pointer;
+      font-family: var(--font-body);
+      letter-spacing: 0.06em;
+      transition: all var(--transition);
+    }
+    #nav.scrolled .lang-btn { color: var(--gray-500); }
+    .lang-btn.active { background: var(--white); color: var(--blue) !important; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+    #nav.scrolled .lang-btn.active { background: var(--blue); color: white !important; }
+
+    /* Nav CTA */
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--blue-mid);
+      color: white !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--blue); transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all var(--transition); border-radius: 2px; }
+    #nav.scrolled .hamburger span { background: var(--gray-900); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 400;
+      color: var(--navy);
+      transition: color var(--transition);
+    }
+    #mobile-menu a:hover { color: var(--blue-mid); }
+    .mobile-cta {
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue-mid);
+      color: white !important;
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body) !important;
+      font-size: var(--text-base) !important;
+      font-weight: 500;
+    }
+    .mobile-lang {
+      display: flex;
+      align-items: center;
+      background: var(--gray-100);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+      margin-top: 0.5rem;
+    }
+    .mobile-lang .lang-btn { color: var(--gray-500); }
+    .mobile-lang .lang-btn.active { background: var(--blue); color: white !important; }
+
+    /* ═══════════════════════════════════════════════
+       HERO — SCROLL-SCRUB VIDEO
+    ═══════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      height: 350vh; /* longer scroll range for smoother scrub */
+    }
+    .hero-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    #hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: auto;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(10,24,47,0.50) 0%,
+        rgba(10,24,47,0.20) 45%,
+        rgba(10,24,47,0.60) 100%
+      );
+    }
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      color: var(--white);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.875rem;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: rgba(255,255,255,0.4);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.25rem, 7.5vw, 7rem);
+      font-weight: 300;
+      line-height: 1.04;
+      letter-spacing: -0.015em;
+      margin-bottom: 1.5rem;
+      max-width: 820px;
+    }
+    .hero-title em { font-style: italic; }
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      max-width: 540px;
+      margin-bottom: 2.75rem;
+      line-height: 1.75;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue-mid);
+      color: white;
+      padding: 0.9rem 2.25rem;
+      border-radius: var(--radius);
+      font-size: var(--text-base);
+      font-weight: 500;
+      transition: all var(--transition);
+      border: 2px solid transparent;
+    }
+    .btn-primary:hover { background: var(--blue); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,115,196,0.4); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: white;
+      padding: 0.9rem 2.25rem;
+      border-radius: var(--radius);
+      font-size: var(--text-base);
+      font-weight: 500;
+      border: 2px solid rgba(255,255,255,0.45);
+      transition: all var(--transition);
+    }
+    .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.625rem;
+      color: rgba(255,255,255,0.55);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 52px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.55), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity:0.55; transform:scaleY(1); }
+      50% { opacity:1; transform:scaleY(0.75); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       SHARED UTILITIES
+    ═══════════════════════════════════════════════ */
+    section { overflow: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section-pad { padding: 6rem 0; }
+    .section-pad-lg { padding: 8rem 0; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 1rem;
+    }
+    .section-label::before { content:''; display:block; width:24px; height:2px; background:var(--blue-mid); }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.12;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: var(--text-lg);
+      color: var(--gray-500);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    .fd1 { transition-delay: 0.1s; }
+    .fd2 { transition-delay: 0.2s; }
+    .fd3 { transition-delay: 0.3s; }
+    .fd4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════════ */
+    #services { background: var(--off-white); }
+    .services-header { text-align: center; margin-bottom: 4rem; }
+    .services-header .section-label { justify-content: center; }
+    .services-header .section-label::before { display: none; }
+    .services-header .section-desc { margin: 0 auto; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--steel));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-icon {
+      width: 56px; height: 56px;
+      background: var(--blue-light);
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--blue-mid);
+    }
+    .service-icon svg { width: 26px; height: 26px; }
+    .service-name {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .service-desc { font-size: var(--text-sm); color: var(--gray-500); line-height: 1.75; }
+
+    /* ═══════════════════════════════════════════════
+       STATS
+    ═══════════════════════════════════════════════ */
+    #stats { background: var(--navy); padding: 5rem 0; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2.5rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 5vw, 4.25rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.625rem;
+    }
+    .stat-label {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════════ */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .feature-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .feature-icon {
+      width: 36px; height: 36px;
+      background: var(--blue-light);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--blue-mid);
+    }
+    .feature-icon svg { width: 18px; height: 18px; }
+    .feature-text h4 { font-size: var(--text-base); font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .feature-text p { font-size: var(--text-sm); color: var(--gray-500); }
+    .about-image-stack { position: relative; padding-bottom: 1.5rem; }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--blue-light) 0%, #c9ddf0 100%);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
+    .about-badge {
+      position: absolute;
+      bottom: 0; left: -1.5rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 1rem;
+      border: 1px solid var(--gray-200);
+    }
+    .badge-icon {
+      width: 48px; height: 48px;
+      background: var(--blue-light);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-mid);
+    }
+    .badge-icon svg { width: 22px; height: 22px; }
+    .badge-text strong { display: block; font-size: var(--text-xl); font-weight: 700; color: var(--navy); }
+    .badge-text span { font-size: var(--text-xs); color: var(--gray-500); }
+
+    /* ═══════════════════════════════════════════════
+       GALLERY
+    ═══════════════════════════════════════════════ */
+    #gallery { background: var(--off-white); }
+    .gallery-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem; gap: 2rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .gallery-item {
+      background: var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+    .gallery-ph {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    .gallery-item:hover .gallery-ph { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(14,34,56,0.72) 0%, transparent 55%);
+      opacity: 0; transition: opacity var(--transition);
+      display: flex; align-items: flex-end; padding: 1.5rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: white; font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════
+       WHY US
+    ═══════════════════════════════════════════════ */
+    #why-us { background: var(--white); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .why-visual {
+      background: linear-gradient(145deg, var(--blue-light) 0%, #d0e6f8 100%);
+      border-radius: var(--radius-xl);
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .why-visual img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+    .why-visual::before {
+      content: '';
+      position: absolute; top: -50%; right: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(46,115,196,0.10) 0%, transparent 60%);
+      z-index: 2; pointer-events: none;
+    }
+    .why-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .why-item {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      transition: all var(--transition);
+    }
+    .why-item:hover { border-color: var(--blue-light); background: var(--blue-light); }
+    .why-num {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 300;
+      color: var(--gray-300);
+      line-height: 1;
+      min-width: 2.5rem;
+      transition: color var(--transition);
+    }
+    .why-item:hover .why-num { color: var(--blue-mid); }
+    .why-item-text h4 { font-size: var(--text-base); font-weight: 600; color: var(--navy); margin-bottom: 0.35rem; }
+    .why-item-text p { font-size: var(--text-sm); color: var(--gray-500); line-height: 1.65; }
+
+    /* ═══════════════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════════════ */
+    #testimonials { background: var(--off-white); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--gray-200);
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 5.5rem;
+      color: var(--blue-light);
+      line-height: 0.8;
+      position: absolute; top: 1.25rem; left: 1.5rem;
+    }
+    .testimonial-text {
+      font-size: var(--text-base);
+      color: var(--gray-700);
+      line-height: 1.75;
+      padding-top: 2.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-mid); flex-shrink: 0;
+    }
+    .author-avatar svg { width: 20px; height: 20px; }
+    .author-name { font-weight: 600; font-size: var(--text-sm); color: var(--navy); }
+    .author-loc { font-size: var(--text-xs); color: var(--gray-500); }
+    .stars { color: #F59E0B; font-size: var(--text-sm); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+
+    /* ═══════════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════════ */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: var(--blue-light);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-mid); flex-shrink: 0;
+    }
+    .contact-icon svg { width: 20px; height: 20px; }
+    .contact-item h4 { font-size: var(--text-sm); font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .contact-item a, .contact-item p { font-size: var(--text-base); color: var(--gray-500); }
+    .contact-item a:hover { color: var(--blue-mid); }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: var(--text-sm); font-weight: 500; color: var(--gray-700); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--gray-900);
+      background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue-mid);
+      box-shadow: 0 0 0 3px rgba(46,115,196,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: var(--blue-mid);
+      color: white;
+      padding: 0.9rem 2.5rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 500;
+      border: none; cursor: pointer;
+      transition: all var(--transition);
+      width: 100%;
+    }
+    .form-submit:hover { background: var(--blue); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(46,115,196,0.35); }
+    .form-note { font-size: var(--text-xs); color: var(--gray-500); text-align: center; margin-top: 0.25rem; }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    #footer { background: var(--navy); color: rgba(255,255,255,0.6); }
+    .footer-main {
+      padding: 5rem 0 3.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .footer-tagline { font-size: var(--text-sm); line-height: 1.7; margin-bottom: 1.75rem; max-width: 340px; }
+    .footer-phone {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--white);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      transition: color var(--transition);
+    }
+    .footer-phone:hover { color: var(--blue-light); }
+    .footer-heading {
+      font-size: var(--text-xs); font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-links a { font-size: var(--text-sm); color: rgba(255,255,255,0.55); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.75rem 0;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+      font-size: var(--text-xs);
+    }
+    .footer-legal-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-legal-links a { color: rgba(255,255,255,0.4); transition: color var(--transition); }
+    .footer-legal-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ═══════════════════════════════════════════════
+       MODALS
+    ═══════════════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(14,34,56,0.65);
+      z-index: 9998;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity var(--transition);
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      max-width: 640px; width: 100%;
+      max-height: 82vh; overflow-y: auto;
+      padding: 2.75rem; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: var(--gray-100); border: none;
+      width: 32px; height: 32px; border-radius: 50%;
+      cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+    }
+    .modal-close:hover { background: var(--gray-200); }
+    .modal h2 { font-family: var(--font-display); font-size: var(--text-3xl); color: var(--navy); margin-bottom: 0.5rem; }
+    .modal .modal-date { font-size: var(--text-sm); color: var(--gray-500); margin-bottom: 1.75rem; }
+    .modal h3 { font-size: var(--text-base); font-weight: 600; color: var(--navy); margin: 1.75rem 0 0.5rem; }
+    .modal p { font-size: var(--text-sm); color: var(--gray-500); line-height: 1.8; }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE — MOBILE-FIRST
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: span 2; }
+      .why-visual { aspect-ratio: 3/2; }
+    }
+
+    @media (max-width: 768px) {
+      .section-pad { padding: 4rem 0; }
+      .section-pad-lg { padding: 5rem 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      #hero { height: 100vh; }
+      #hero-video { display: none; }
+      .hero-sticky { background: linear-gradient(145deg, var(--navy) 0%, var(--blue) 100%); }
+      .footer-main { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:first-child { grid-column: span 1; }
+      .gallery-header { flex-direction: column; align-items: flex-start; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .about-badge { left: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1.25rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .stats-grid { grid-template-columns: 1fr; }
+      #nav { padding: 1rem 1.25rem; }
+      #nav.scrolled { padding: 0.875rem 1.25rem; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      #hero { height: 100vh; }
+      #hero-video { display: none; }
+      .hero-sticky { background: linear-gradient(145deg, var(--navy) 0%, var(--blue) 100%); }
+      .scroll-line { display: none; }
+      .fade-in { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COOKIE BANNER — fires before any tracking -->
+  <div id="cookie-banner" role="alert" aria-live="polite">
+    <p id="cookie-text">We use cookies to improve your experience. By continuing, you accept our use of cookies. <a href="#" id="privacy-link-banner" style="color:var(--blue-light);text-decoration:underline;">Learn more</a></p>
+    <button id="cookie-accept" aria-label="Accept cookies">Accept</button>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="Aluminum Luxury Decor Inc — Home">
+      Aluminum Luxury Decor
+      <span>Inc. — Miami, FL</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links" role="list">
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-btn active" id="lang-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button class="lang-btn" id="lang-es" onclick="setLang('es')" aria-pressed="false">ES</button>
+      </div>
+      <a href="tel:3053085578" class="nav-cta" aria-label="Call us for a free quote">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h2.5l1.5 5-2 1.5a11 11 0 0 0 5 5l1.5-2 5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg>
+        <span data-i18n="nav.cta">Free Quote</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="#services" onclick="closeMobile()" data-i18n="nav.services">Services</a>
+    <a href="#about" onclick="closeMobile()" data-i18n="nav.about">About</a>
+    <a href="#gallery" onclick="closeMobile()" data-i18n="nav.gallery">Gallery</a>
+    <a href="#contact" onclick="closeMobile()" data-i18n="nav.contact">Contact</a>
+    <a href="tel:3053085578" class="mobile-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h2.5l1.5 5-2 1.5a11 11 0 0 0 5 5l1.5-2 5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg> (305) 308-5578</a>
+    <div class="mobile-lang">
+      <button class="lang-btn active" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" onclick="setLang('es');closeMobile()">ES</button>
+    </div>
+  </div>
+
+  <!-- HERO — SCROLL-SCRUB VIDEO -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-sticky">
+      <video
+        id="hero-video"
+        src="hero.mp4"
+        poster="images/gallery-pergola-kendall.jpg"
+        muted
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      ></video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span data-i18n="hero.eyebrow">Miami · South Florida</span>
+        </div>
+        <h1 class="hero-title">
+          <span data-i18n="hero.title.line1">Outdoor Living,</span><br>
+          <em data-i18n="hero.title.line2">Elevated.</em>
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Custom aluminum pergolas, insulated patios, screen enclosures, and patio rooms — built to last Florida's climate.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary" data-i18n="hero.cta1">Get a Free Quote</a>
+          <a href="#services" class="btn-secondary" data-i18n="hero.cta2">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span data-i18n="hero.scroll">Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="services-header">
+        <p class="section-label fade-in" data-i18n="services.label">What We Build</p>
+        <h2 class="section-title fade-in fd1" data-i18n="services.title">Aluminum Structures Built for Your Life</h2>
+        <p class="section-desc fade-in fd2" data-i18n="services.desc">
+          From elegant pergolas to fully enclosed patio rooms — every project is custom-designed, permit-ready, and professionally installed.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l10-4 10 4"/><path d="M4 7v3M20 7v3M4 10h16"/><path d="M7 10v8M17 10v8"/></svg></div>
+          <h3 class="service-name" data-i18n="s1.name">Pergolas</h3>
+          <p class="service-desc" data-i18n="s1.desc">Custom aluminum pergolas with clean architectural lines. Louvered and fixed-roof options — designed for South Florida's sun and weather.</p>
+        </div>
+        <div class="service-card fade-in fd1">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9 20v-6h6v6"/></svg></div>
+          <h3 class="service-name" data-i18n="s2.name">Insulated Patios</h3>
+          <p class="service-desc" data-i18n="s2.desc">Insulated aluminum patio covers that keep your outdoor space cool year-round. Energy-efficient, low-maintenance, and Florida-ready.</p>
+        </div>
+        <div class="service-card fade-in fd2">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></div>
+          <h3 class="service-name" data-i18n="s3.name">Patio Rooms</h3>
+          <p class="service-desc" data-i18n="s3.desc">Fully enclosed aluminum patio rooms that extend your living area into the outdoors. Transform an underused space into a year-round room.</p>
+        </div>
+        <div class="service-card fade-in fd3">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg></div>
+          <h3 class="service-name" data-i18n="s4.name">Screen Enclosures</h3>
+          <p class="service-desc" data-i18n="s4.desc">High-quality screen enclosures for pools, patios, and lanais. Keep insects out while enjoying natural light and airflow all year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" aria-label="Company stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="fade-in">
+          <div class="stat-num">500+</div>
+          <p class="stat-label" data-i18n="stat1">Projects Completed</p>
+        </div>
+        <div class="fade-in fd1">
+          <div class="stat-num">10+</div>
+          <p class="stat-label" data-i18n="stat2">Years of Experience</p>
+        </div>
+        <div class="fade-in fd2">
+          <div class="stat-num">3</div>
+          <p class="stat-label" data-i18n="stat3">Counties Served</p>
+        </div>
+        <div class="fade-in fd3">
+          <div class="stat-num">100%</div>
+          <p class="stat-label" data-i18n="stat4">Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-pad-lg">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="section-label fade-in" data-i18n="about.label">About Us</p>
+          <h2 class="section-title fade-in fd1" data-i18n="about.title">Miami's Trusted Aluminum Specialists</h2>
+          <p class="section-desc fade-in fd2" data-i18n="about.desc">
+            We've been transforming South Florida outdoor spaces for over a decade — building custom aluminum structures that combine architectural quality with lasting craftsmanship.
+          </p>
+          <div class="about-features fade-in fd3">
+            <div class="feature-item">
+              <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <div class="feature-text">
+                <h4 data-i18n="f1.title">Licensed &amp; Insured</h4>
+                <p data-i18n="f1.desc">Fully licensed Florida contractor with comprehensive liability coverage on every project.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5l8-3z"/></svg></div>
+              <div class="feature-text">
+                <h4 data-i18n="f2.title">Weather-Resistant Materials</h4>
+                <p data-i18n="f2.desc">Commercial-grade aluminum built to withstand Florida's humidity, UV exposure, and storm conditions.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l9-15 9 15z"/><path d="M9.5 13.5h5"/></svg></div>
+              <div class="feature-text">
+                <h4 data-i18n="f3.title">Custom Fabrication</h4>
+                <p data-i18n="f3.desc">Every structure is designed and built to your exact specifications — no cookie-cutter solutions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image-stack fade-in fd2">
+          <div class="about-img-main"><img src="images/gallery-pergola-kendall.jpg" alt="Aluminum pergola installation" loading="lazy"></div>
+          <div class="about-badge">
+            <div class="badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 13L7 22l5-3 5 3-1.5-9"/></svg></div>
+            <div class="badge-text">
+              <strong>500+</strong>
+              <span data-i18n="badge.text">Happy Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section-pad">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <p class="section-label fade-in" data-i18n="gallery.label">Our Work</p>
+          <h2 class="section-title fade-in fd1" data-i18n="gallery.title">Recent Projects</h2>
+        </div>
+        <a href="#contact" class="btn-primary fade-in fd2" data-i18n="gallery.cta">Start Your Project</a>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in">
+          <img class="gallery-ph" src="images/gallery-pergola-kendall.jpg" alt="Aluminum pergola — Kendall, FL" loading="lazy">
+          <div class="gallery-overlay"><span data-i18n="gp2">Pergola — Kendall</span></div>
+        </div>
+        <div class="gallery-item fade-in fd1">
+          <img class="gallery-ph" src="images/gallery-patio-doral.jpg" alt="Insulated patio — Doral, FL" loading="lazy">
+          <div class="gallery-overlay"><span data-i18n="gp1">Insulated Patio — Doral</span></div>
+        </div>
+        <div class="gallery-item fade-in fd2">
+          <img class="gallery-ph" src="images/gallery-pergola-homestead.jpg" alt="Pergola — Homestead, FL" loading="lazy">
+          <div class="gallery-overlay"><span data-i18n="gp5">Pergola — Homestead</span></div>
+        </div>
+        <div class="gallery-item fade-in fd1">
+          <img class="gallery-ph" src="images/gallery-screen-hialeah.jpg" alt="Screen enclosure — Hialeah, FL" loading="lazy">
+          <div class="gallery-overlay"><span data-i18n="gp3">Screen Enclosure — Hialeah</span></div>
+        </div>
+        <div class="gallery-item fade-in fd2">
+          <img class="gallery-ph" src="images/gallery-room-coral-gables.jpg" alt="Patio room — Coral Gables, FL" loading="lazy">
+          <div class="gallery-overlay"><span data-i18n="gp4">Patio Room — Coral Gables</span></div>
+        </div>
+        <div class="gallery-item fade-in fd1">
+          <img class="gallery-ph" src="images/gallery-patio-pinecrest.jpg" alt="Insulated patio — Pinecrest, FL" loading="lazy">
+          <div class="gallery-overlay"><span data-i18n="gp6">Insulated Patio — Pinecrest</span></div>
+        </div>
+        <div class="gallery-item fade-in fd2">
+          <img class="gallery-ph" src="images/gallery-carport-aventura.jpg" alt="Custom aluminum carport — Aventura, FL" loading="lazy">
+          <div class="gallery-overlay"><span data-i18n="gp7">Custom Carport — Aventura</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us" class="section-pad-lg">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-visual fade-in"><img src="images/gallery-room-coral-gables.jpg" alt="Aluminum structure showcase" loading="lazy"></div>
+        <div>
+          <p class="section-label fade-in" data-i18n="why.label">Why Choose Us</p>
+          <h2 class="section-title fade-in fd1" data-i18n="why.title">Quality You Can See. Service You Can Trust.</h2>
+          <div class="why-list">
+            <div class="why-item fade-in fd1">
+              <span class="why-num">01</span>
+              <div class="why-item-text">
+                <h4 data-i18n="w1.title">Free On-Site Estimate</h4>
+                <p data-i18n="w1.desc">We visit your property, measure your space, and provide a detailed written quote — no cost, no obligation.</p>
+              </div>
+            </div>
+            <div class="why-item fade-in fd2">
+              <span class="why-num">02</span>
+              <div class="why-item-text">
+                <h4 data-i18n="w2.title">Permit-Ready Construction</h4>
+                <p data-i18n="w2.desc">We handle the full permit process so your structure is 100% code-compliant and properly insured.</p>
+              </div>
+            </div>
+            <div class="why-item fade-in fd3">
+              <span class="why-num">03</span>
+              <div class="why-item-text">
+                <h4 data-i18n="w3.title">Bilingual Team</h4>
+                <p data-i18n="w3.desc">Our crew communicates fluently in English and Spanish — so every detail is clear from start to finish.</p>
+              </div>
+            </div>
+            <div class="why-item fade-in fd4">
+              <span class="why-num">04</span>
+              <div class="why-item-text">
+                <h4 data-i18n="w4.title">Post-Installation Support</h4>
+                <p data-i18n="w4.desc">We stand behind every project with warranty coverage and dedicated after-service support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section-pad" aria-label="Customer testimonials">
+    <div class="container">
+      <div class="services-header">
+        <p class="section-label fade-in" data-i18n="test.label">Testimonials</p>
+        <h2 class="section-title fade-in fd1" data-i18n="test.title">What Our Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="t1.text">"They built our pergola in two days. The quality is exceptional — solid, clean, and exactly what we envisioned. Highly recommend."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+            <div>
+              <p class="author-name" data-i18n="t1.name">María González</p>
+              <p class="author-loc" data-i18n="t1.loc">Doral, FL</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fd1">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="t2.text">"Professional, on time, and very detail-oriented. Our screen enclosure looks amazing and has kept bugs out all summer."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+            <div>
+              <p class="author-name" data-i18n="t2.name">James &amp; Linda Ortega</p>
+              <p class="author-loc" data-i18n="t2.loc">Kendall, FL</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fd2">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="t3.text">"From quote to installation, everything was smooth and professional. The insulated patio keeps our pool area so much cooler now."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+            <div>
+              <p class="author-name" data-i18n="t3.name">Roberto Fernández</p>
+              <p class="author-loc" data-i18n="t3.loc">Hialeah, FL</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-pad-lg">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <p class="section-label fade-in" data-i18n="contact.label">Get In Touch</p>
+          <h2 class="section-title fade-in fd1" data-i18n="contact.title">Request Your Free Quote</h2>
+          <p class="section-desc fade-in fd2" data-i18n="contact.desc">Tell us about your project and we'll schedule a free on-site visit within 48 hours.</p>
+          <div class="contact-info fade-in fd3">
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h2.5l1.5 5-2 1.5a11 11 0 0 0 5 5l1.5-2 5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></div>
+              <div>
+                <h4 data-i18n="ci1.label">Phone</h4>
+                <a href="tel:3053085578" aria-label="Call (305) 308-5578">(305) 308-5578</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+              <div>
+                <h4 data-i18n="ci2.label">Service Area</h4>
+                <p data-i18n="ci2.val">Miami-Dade, Broward &amp; Palm Beach Counties</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+              <div>
+                <h4 data-i18n="ci3.label">Hours</h4>
+                <p data-i18n="ci3.val">Mon – Sat: 8:00 AM – 6:00 PM</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg></div>
+              <div>
+                <h4 data-i18n="ci4.label">Follow Us</h4>
+                <p>
+                  <a href="https://www.tiktok.com/@aluminumluxurydecorinc" target="_blank" rel="noopener noreferrer" aria-label="TikTok (opens in new tab)" style="margin-right:0.75rem;">TikTok</a>
+                  <a href="https://www.instagram.com/aluminumluxurydecorinc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">Instagram</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form fade-in fd2" id="contact-form" novalidate aria-label="Quote request form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" data-i18n="form.name">Full Name *</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="John Smith" aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="phone" data-i18n="form.phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(305) 000-0000" aria-required="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="form.email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com">
+          </div>
+          <div class="form-group">
+            <label for="service" data-i18n="form.service">Service Interested In *</label>
+            <select id="service" name="service" required aria-required="true">
+              <option value="" data-i18n="form.svc0">Select a service...</option>
+              <option value="pergola" data-i18n="form.svc1">Pergola</option>
+              <option value="patio" data-i18n="form.svc2">Insulated Patio</option>
+              <option value="room" data-i18n="form.svc3">Patio Room</option>
+              <option value="screen" data-i18n="form.svc4">Screen Enclosure</option>
+              <option value="other" data-i18n="form.svc5">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="form.msg">Tell Us About Your Project</label>
+            <textarea id="message" name="message" placeholder="Describe your space, dimensions, or any specific requirements..."></textarea>
+          </div>
+          <button type="submit" class="form-submit" aria-label="Submit quote request">
+            <span data-i18n="form.submit">Send Quote Request</span> →
+          </button>
+          <p class="form-note" data-i18n="form.note">We'll respond within 24 hours. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <p class="footer-brand">Aluminum Luxury Decor Inc.</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">South Florida's premium aluminum structure specialists — pergolas, insulated patios, screen enclosures, and patio rooms.</p>
+          <a href="tel:3053085578" class="footer-phone" aria-label="Call (305) 308-5578">(305) 308-5578</a>
+        </div>
+        <div>
+          <p class="footer-heading" data-i18n="footer.h1">Services</p>
+          <ul class="footer-links" role="list">
+            <li><a href="#services" data-i18n="footer.s1">Pergolas</a></li>
+            <li><a href="#services" data-i18n="footer.s2">Insulated Patios</a></li>
+            <li><a href="#services" data-i18n="footer.s3">Patio Rooms</a></li>
+            <li><a href="#services" data-i18n="footer.s4">Screen Enclosures</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading" data-i18n="footer.h2">Company</p>
+          <ul class="footer-links" role="list">
+            <li><a href="#about" data-i18n="footer.about">About Us</a></li>
+            <li><a href="#gallery" data-i18n="footer.gallery">Gallery</a></li>
+            <li><a href="#contact" data-i18n="footer.contact">Contact</a></li>
+            <li><a href="https://www.tiktok.com/@aluminumluxurydecorinc" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            <li><a href="https://www.instagram.com/aluminumluxurydecorinc/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Aluminum Luxury Decor Inc. All rights reserved. | Miami, FL</p>
+        <ul class="footer-legal-links" role="list">
+          <li><a href="#" id="privacy-link" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="#" id="terms-link" data-i18n="footer.terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRIVACY MODAL -->
+  <div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('privacy-modal')" aria-label="Close">✕</button>
+      <h2 id="privacy-title" data-i18n="priv.title">Privacy Policy</h2>
+      <p class="modal-date" data-i18n="priv.date">Last updated: June 2026</p>
+      <h3 data-i18n="priv.h1">Information We Collect</h3>
+      <p data-i18n="priv.p1">We collect information you provide directly when submitting a quote request: name, phone number, email address, and project details.</p>
+      <h3 data-i18n="priv.h2">How We Use Your Information</h3>
+      <p data-i18n="priv.p2">Your information is used solely to respond to your quote request and provide our services. We do not sell, rent, or share your personal data with third parties.</p>
+      <h3 data-i18n="priv.h3">Cookies</h3>
+      <p data-i18n="priv.p3">This site uses functional cookies only. No advertising or tracking cookies are placed without your explicit consent via the cookie banner.</p>
+      <h3 data-i18n="priv.h4">Contact</h3>
+      <p data-i18n="priv.p4">For privacy questions, contact us at (305) 308-5578 or through our contact form.</p>
+    </div>
+  </div>
+
+  <!-- TERMS MODAL -->
+  <div class="modal-overlay" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('terms-modal')" aria-label="Close">✕</button>
+      <h2 id="terms-title" data-i18n="terms.title">Terms of Service</h2>
+      <p class="modal-date" data-i18n="terms.date">Last updated: June 2026</p>
+      <h3 data-i18n="terms.h1">Services</h3>
+      <p data-i18n="terms.p1">Aluminum Luxury Decor Inc. provides custom aluminum structure installation in South Florida. All work complies with applicable Florida building codes and local regulations.</p>
+      <h3 data-i18n="terms.h2">Quotes &amp; Estimates</h3>
+      <p data-i18n="terms.p2">All quotes are estimates based on information provided. Final pricing may vary based on on-site conditions and scope adjustments agreed upon before work begins.</p>
+      <h3 data-i18n="terms.h3">Warranty</h3>
+      <p data-i18n="terms.p3">We provide a workmanship warranty on all installations. Manufacturer warranties apply to materials. Contact us for specific warranty terms.</p>
+      <h3 data-i18n="terms.h4">Permits</h3>
+      <p data-i18n="terms.p4">All work is subject to permit approval by local authorities. Aluminum Luxury Decor Inc. is not responsible for delays caused by municipal permit processing timelines.</p>
+    </div>
+  </div>
+
+  <!-- JSON-LD STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Aluminum Luxury Decor Inc",
+    "description": "Custom aluminum pergolas, insulated patios, screen enclosures, and patio rooms in Miami and South Florida.",
+    "telephone": "+13053085578",
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "Miami-Dade County"},
+      {"@type": "AdministrativeArea", "name": "Broward County"},
+      {"@type": "AdministrativeArea", "name": "Palm Beach County"}
+    ],
+    "url": "https://aluminumluxurydecorinc.com",
+    "sameAs": [
+      "https://www.instagram.com/aluminumluxurydecorinc/",
+      "https://www.tiktok.com/@aluminumluxurydecorinc"
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Aluminum Structures",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pergolas"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Insulated Patios"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Patio Rooms"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Screen Enclosures"}}
+      ]
+    }
+  }
+  </script>
+
+  <!-- MAIN SCRIPT -->
+  <script defer>
+
+  // ══════════════════════════════════════════════════
+  // i18n — all strings go through this object
+  // ══════════════════════════════════════════════════
+  const i18n = {
+    en: {
+      'nav.services':'Services','nav.about':'About','nav.gallery':'Gallery','nav.contact':'Contact','nav.cta':'Free Quote',
+      'hero.eyebrow':'Miami · South Florida',
+      'hero.title.line1':'Outdoor Living,','hero.title.line2':'Elevated.',
+      'hero.subtitle':'Custom aluminum pergolas, insulated patios, screen enclosures, and patio rooms — built to last Florida\'s climate.',
+      'hero.cta1':'Get a Free Quote','hero.cta2':'Our Services','hero.scroll':'Scroll',
+      'services.label':'What We Build','services.title':'Aluminum Structures Built for Your Life',
+      'services.desc':'From elegant pergolas to fully enclosed patio rooms — every project is custom-designed, permit-ready, and professionally installed.',
+      's1.name':'Pergolas','s1.desc':'Custom aluminum pergolas with clean architectural lines. Louvered and fixed-roof options — designed for South Florida\'s sun and weather.',
+      's2.name':'Insulated Patios','s2.desc':'Insulated aluminum patio covers that keep your outdoor space cool year-round. Energy-efficient, low-maintenance, and Florida-ready.',
+      's3.name':'Patio Rooms','s3.desc':'Fully enclosed aluminum patio rooms that extend your living area into the outdoors. Transform an underused space into a year-round room.',
+      's4.name':'Screen Enclosures','s4.desc':'High-quality screen enclosures for pools, patios, and lanais. Keep insects out while enjoying natural light and airflow all year.',
+      'stat1':'Projects Completed','stat2':'Years of Experience','stat3':'Counties Served','stat4':'Client Satisfaction',
+      'about.label':'About Us','about.title':'Miami\'s Trusted Aluminum Specialists',
+      'about.desc':'We\'ve been transforming South Florida outdoor spaces for over a decade — building custom aluminum structures that combine architectural quality with lasting craftsmanship.',
+      'f1.title':'Licensed & Insured','f1.desc':'Fully licensed Florida contractor with comprehensive liability coverage on every project.',
+      'f2.title':'Weather-Resistant Materials','f2.desc':'Commercial-grade aluminum built to withstand Florida\'s humidity, UV exposure, and storm conditions.',
+      'f3.title':'Custom Fabrication','f3.desc':'Every structure is designed and built to your exact specifications — no cookie-cutter solutions.',
+      'badge.text':'Happy Clients',
+      'gallery.label':'Our Work','gallery.title':'Recent Projects','gallery.cta':'Start Your Project',
+      'gp1':'Insulated Patio — Doral','gp2':'Pergola — Kendall','gp3':'Screen Enclosure — Hialeah','gp4':'Patio Room — Coral Gables','gp5':'Pergola — Homestead','gp6':'Insulated Patio — Pinecrest','gp7':'Custom Carport — Aventura',
+      'why.label':'Why Choose Us','why.title':'Quality You Can See. Service You Can Trust.',
+      'w1.title':'Free On-Site Estimate','w1.desc':'We visit your property, measure your space, and provide a detailed written quote — no cost, no obligation.',
+      'w2.title':'Permit-Ready Construction','w2.desc':'We handle the full permit process so your structure is 100% code-compliant and properly insured.',
+      'w3.title':'Bilingual Team','w3.desc':'Our crew communicates fluently in English and Spanish — so every detail is clear from start to finish.',
+      'w4.title':'Post-Installation Support','w4.desc':'We stand behind every project with warranty coverage and dedicated after-service support.',
+      'test.label':'Testimonials','test.title':'What Our Clients Say',
+      't1.text':'"They built our pergola in two days. The quality is exceptional — solid, clean, and exactly what we envisioned. Highly recommend."','t1.name':'María González','t1.loc':'Doral, FL',
+      't2.text':'"Professional, on time, and very detail-oriented. Our screen enclosure looks amazing and has kept bugs out all summer."','t2.name':'James & Linda Ortega','t2.loc':'Kendall, FL',
+      't3.text':'"From quote to installation, everything was smooth and professional. The insulated patio keeps our pool area so much cooler now."','t3.name':'Roberto Fernández','t3.loc':'Hialeah, FL',
+      'contact.label':'Get In Touch','contact.title':'Request Your Free Quote',
+      'contact.desc':'Tell us about your project and we\'ll schedule a free on-site visit within 48 hours.',
+      'ci1.label':'Phone','ci2.label':'Service Area','ci2.val':'Miami-Dade, Broward & Palm Beach Counties',
+      'ci3.label':'Hours','ci3.val':'Mon – Sat: 8:00 AM – 6:00 PM','ci4.label':'Follow Us',
+      'form.name':'Full Name *','form.phone':'Phone *','form.email':'Email','form.service':'Service Interested In *',
+      'form.svc0':'Select a service...','form.svc1':'Pergola','form.svc2':'Insulated Patio','form.svc3':'Patio Room','form.svc4':'Screen Enclosure','form.svc5':'Other / Not Sure',
+      'form.msg':'Tell Us About Your Project','form.submit':'Send Quote Request','form.note':'We\'ll respond within 24 hours. No spam, ever.',
+      'footer.tagline':'South Florida\'s premium aluminum structure specialists — pergolas, insulated patios, screen enclosures, and patio rooms.',
+      'footer.h1':'Services','footer.h2':'Company',
+      'footer.s1':'Pergolas','footer.s2':'Insulated Patios','footer.s3':'Patio Rooms','footer.s4':'Screen Enclosures',
+      'footer.about':'About Us','footer.gallery':'Gallery','footer.contact':'Contact',
+      'footer.privacy':'Privacy Policy','footer.terms':'Terms of Service',
+      'priv.title':'Privacy Policy','priv.date':'Last updated: June 2026',
+      'priv.h1':'Information We Collect','priv.p1':'We collect information you provide directly when submitting a quote request: name, phone number, email address, and project details.',
+      'priv.h2':'How We Use Your Information','priv.p2':'Your information is used solely to respond to your quote request and provide our services. We do not sell, rent, or share your personal data with third parties.',
+      'priv.h3':'Cookies','priv.p3':'This site uses functional cookies only. No advertising or tracking cookies are placed without your explicit consent via the cookie banner.',
+      'priv.h4':'Contact','priv.p4':'For privacy questions, contact us at (305) 308-5578 or through our contact form.',
+      'terms.title':'Terms of Service','terms.date':'Last updated: June 2026',
+      'terms.h1':'Services','terms.p1':'Aluminum Luxury Decor Inc. provides custom aluminum structure installation in South Florida. All work complies with applicable Florida building codes.',
+      'terms.h2':'Quotes & Estimates','terms.p2':'All quotes are estimates. Final pricing may vary based on on-site conditions and scope adjustments agreed upon before work begins.',
+      'terms.h3':'Warranty','terms.p3':'We provide a workmanship warranty on all installations. Manufacturer warranties apply to materials used.',
+      'terms.h4':'Permits','terms.p4':'All work is subject to permit approval by local authorities. Aluminum Luxury Decor Inc. is not responsible for delays caused by municipal permit processing.',
+      'cookie.text':'We use cookies to improve your experience. By continuing, you accept our use of cookies.',
+      'cookie.accept':'Accept',
+      'form.err':'Please fill in all required fields.',
+      'form.thanks':'Thank you! We\'ll be in touch within 24 hours.',
+    },
+    es: {
+      'nav.services':'Servicios','nav.about':'Nosotros','nav.gallery':'Galería','nav.contact':'Contacto','nav.cta':'Cotización Gratis',
+      'hero.eyebrow':'Miami · Sur de Florida',
+      'hero.title.line1':'Vida al Aire Libre,','hero.title.line2':'Elevada.',
+      'hero.subtitle':'Pérgolas de aluminio, terrazas insuladas, screen enclosures y casitas de patio — construidos para el clima de South Florida.',
+      'hero.cta1':'Pide tu Cotización Gratis','hero.cta2':'Nuestros Servicios','hero.scroll':'Desplaza',
+      'services.label':'Lo Que Construimos','services.title':'Estructuras de Aluminio para tu Hogar',
+      'services.desc':'Desde elegantes pérgolas hasta casitas de patio completamente cerradas — cada proyecto es diseñado a medida e instalado profesionalmente.',
+      's1.name':'Pérgolas','s1.desc':'Pérgolas de aluminio personalizadas con líneas arquitectónicas limpias. Opciones con techo louver y fijo para el sol y clima de South Florida.',
+      's2.name':'Terrazas Insuladas','s2.desc':'Cubiertas de aluminio insuladas que mantienen tu espacio exterior fresco todo el año. Eficientes energéticamente y sin mantenimiento.',
+      's3.name':'Casitas de Patio','s3.desc':'Cuartos de patio de aluminio completamente cerrados que amplían tu área de vida. Convierte espacios exteriores en cuartos confortables.',
+      's4.name':'Screen Enclosures','s4.desc':'Encerramientos de malla de alta calidad para piscinas, patios y lanais. Mantén los insectos afuera mientras disfrutas luz natural y ventilación.',
+      'stat1':'Proyectos Completados','stat2':'Años de Experiencia','stat3':'Condados que Servimos','stat4':'Satisfacción de Clientes',
+      'about.label':'Nosotros','about.title':'Los Especialistas en Aluminio de Confianza en Miami',
+      'about.desc':'Llevamos más de una década transformando espacios exteriores en South Florida — construyendo estructuras de aluminio personalizadas con calidad arquitectónica y artesanía duradera.',
+      'f1.title':'Licenciados y Asegurados','f1.desc':'Contratista completamente licenciado en Florida con cobertura de responsabilidad integral en cada proyecto.',
+      'f2.title':'Materiales Resistentes al Clima','f2.desc':'Aluminio de grado comercial que soporta la humedad, rayos UV y tormentas de Florida.',
+      'f3.title':'Fabricación Personalizada','f3.desc':'Cada estructura es diseñada y construida a tus especificaciones exactas — sin soluciones genéricas.',
+      'badge.text':'Clientes Satisfechos',
+      'gallery.label':'Nuestro Trabajo','gallery.title':'Proyectos Recientes','gallery.cta':'Inicia tu Proyecto',
+      'gp1':'Terraza Insulada — Doral','gp2':'Pérgola — Kendall','gp3':'Screen Enclosure — Hialeah','gp4':'Casita de Patio — Coral Gables','gp5':'Pérgola — Homestead','gp6':'Terraza Insulada — Pinecrest','gp7':'Carport Personalizado — Aventura',
+      'why.label':'Por Qué Elegirnos','why.title':'Calidad que se Ve. Servicio en que Confiar.',
+      'w1.title':'Estimado Gratuito en tu Propiedad','w1.desc':'Visitamos tu propiedad, medimos el espacio y te damos una cotización detallada por escrito — sin costo, sin compromiso.',
+      'w2.title':'Construcción Lista para Permisos','w2.desc':'Manejamos todo el proceso de permisos para que tu estructura cumpla al 100% con los códigos locales.',
+      'w3.title':'Equipo Bilingüe','w3.desc':'Nuestro equipo habla inglés y español con fluidez — para que cada detalle quede claro desde el inicio.',
+      'w4.title':'Soporte Post-Instalación','w4.desc':'Respaldamos cada proyecto con garantía de mano de obra y soporte dedicado después de la instalación.',
+      'test.label':'Testimonios','test.title':'Lo Que Dicen Nuestros Clientes',
+      't1.text':'"Construyeron nuestra pérgola en dos días. La calidad es excepcional — sólida, limpia y exactamente como la imaginamos. Muy recomendados."','t1.name':'María González','t1.loc':'Doral, FL',
+      't2.text':'"Profesionales, puntuales y muy detallistas. Nuestro screen enclosure se ve increíble y nos ha mantenido los insectos afuera todo el verano."','t2.name':'James & Linda Ortega','t2.loc':'Kendall, FL',
+      't3.text':'"Desde la cotización hasta la instalación, todo fue perfecto y profesional. La terraza insulada mantiene nuestra área de piscina mucho más fresca."','t3.name':'Roberto Fernández','t3.loc':'Hialeah, FL',
+      'contact.label':'Contáctanos','contact.title':'Solicita tu Cotización Gratuita',
+      'contact.desc':'Cuéntanos sobre tu proyecto y programaremos una visita gratuita en tu propiedad en 48 horas.',
+      'ci1.label':'Teléfono','ci2.label':'Área de Servicio','ci2.val':'Condados de Miami-Dade, Broward y Palm Beach',
+      'ci3.label':'Horario','ci3.val':'Lun – Sáb: 8:00 AM – 6:00 PM','ci4.label':'Síguenos',
+      'form.name':'Nombre Completo *','form.phone':'Teléfono *','form.email':'Correo Electrónico','form.service':'Servicio de Interés *',
+      'form.svc0':'Selecciona un servicio...','form.svc1':'Pérgola','form.svc2':'Terraza Insulada','form.svc3':'Casita de Patio','form.svc4':'Screen Enclosure','form.svc5':'Otro / No Estoy Seguro',
+      'form.msg':'Cuéntanos sobre tu Proyecto','form.submit':'Enviar Solicitud de Cotización','form.note':'Responderemos en 24 horas. Sin spam, nunca.',
+      'footer.tagline':'Especialistas premium en estructuras de aluminio en South Florida — pérgolas, terrazas insuladas, screen enclosures y casitas de patio.',
+      'footer.h1':'Servicios','footer.h2':'Empresa',
+      'footer.s1':'Pérgolas','footer.s2':'Terrazas Insuladas','footer.s3':'Casitas de Patio','footer.s4':'Screen Enclosures',
+      'footer.about':'Nosotros','footer.gallery':'Galería','footer.contact':'Contacto',
+      'footer.privacy':'Política de Privacidad','footer.terms':'Términos de Servicio',
+      'priv.title':'Política de Privacidad','priv.date':'Última actualización: junio 2026',
+      'priv.h1':'Información que Recopilamos','priv.p1':'Recopilamos la información que proporcionas al enviar una solicitud de cotización: nombre, teléfono, correo electrónico y detalles del proyecto.',
+      'priv.h2':'Cómo Usamos tu Información','priv.p2':'Usamos tu información únicamente para responder a tu cotización y brindarte nuestros servicios. No vendemos, alquilamos ni compartimos tus datos con terceros.',
+      'priv.h3':'Cookies','priv.p3':'Este sitio usa solo cookies funcionales. No se instalan cookies de publicidad o rastreo sin tu consentimiento explícito.',
+      'priv.h4':'Contacto','priv.p4':'Para preguntas de privacidad, contáctanos al (305) 308-5578 o por nuestro formulario de contacto.',
+      'terms.title':'Términos de Servicio','terms.date':'Última actualización: junio 2026',
+      'terms.h1':'Servicios','terms.p1':'Aluminum Luxury Decor Inc. proporciona instalación de estructuras de aluminio en South Florida. Todo el trabajo cumple con los códigos de construcción de Florida.',
+      'terms.h2':'Cotizaciones y Estimados','terms.p2':'Todas las cotizaciones son estimados. El precio final puede variar según condiciones del sitio y ajustes acordados antes de comenzar el trabajo.',
+      'terms.h3':'Garantía','terms.p3':'Proporcionamos garantía de mano de obra en todas las instalaciones. Las garantías del fabricante aplican a los materiales utilizados.',
+      'terms.h4':'Permisos','terms.p4':'Todo el trabajo está sujeto a la aprobación de permisos por autoridades locales. Aluminum Luxury Decor Inc. no es responsable de demoras por procesamiento municipal de permisos.',
+      'cookie.text':'Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestro uso de cookies.',
+      'cookie.accept':'Aceptar',
+      'form.err':'Por favor completa todos los campos obligatorios.',
+      'form.thanks':'¡Gracias! Nos pondremos en contacto contigo en 24 horas.',
+    }
+  };
+
+  // ── Language ──────────────────────────────────────
+  let lang = 'en';
+
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = i18n[l][key];
+      if (val !== undefined) el.innerHTML = val;
+    });
+    // Cookie banner
+    document.getElementById('cookie-text').innerHTML =
+      i18n[l]['cookie.text'] +
+      ' <a href="#" id="privacy-link-banner" style="color:var(--blue-light);text-decoration:underline;">' +
+      (l === 'es' ? 'Más info' : 'Learn more') + '</a>';
+    document.getElementById('cookie-accept').textContent = i18n[l]['cookie.accept'];
+    // Rebind banner privacy link
+    bindPrivacyBannerLink();
+    // Toggle buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.id === 'lang-' + l || btn.textContent === l.toUpperCase();
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+    localStorage.setItem('ald-lang', l);
+  }
+
+  function detectLang() {
+    const saved = localStorage.getItem('ald-lang');
+    if (saved) return saved;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  // ── Nav scroll behavior ───────────────────────────
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Hamburger ─────────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  // ── Scroll-scrub video (forward + backward) ──────
+  const video = document.getElementById('hero-video');
+  const heroSection = document.getElementById('hero');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (video && !reducedMotion) {
+    // Never autoplay — we drive currentTime manually
+    video.pause();
+
+    const seekVideo = (progress) => {
+      if (!video.duration) return;
+      const t = Math.min(Math.max(progress, 0), 1) * video.duration;
+      // fastSeek is smoother in Firefox; currentTime is precise in Chrome
+      if (typeof video.fastSeek === 'function') {
+        video.fastSeek(t);
+      } else {
+        video.currentTime = t;
+      }
+    };
+
+    const updateScrub = () => {
+      // Use getBoundingClientRect for accurate position relative to hero
+      const rect = heroSection.getBoundingClientRect();
+      const scrollRange = heroSection.offsetHeight - window.innerHeight;
+      // -rect.top = how many px the user has scrolled into the hero section
+      const scrolled = -rect.top;
+      seekVideo(scrolled / scrollRange);
+    };
+
+    // Make sure metadata is loaded before first seek
+    if (video.readyState >= 1) {
+      updateScrub();
+    } else {
+      video.addEventListener('loadedmetadata', updateScrub, { once: true });
+    }
+
+    let rafPending = false;
+    window.addEventListener('scroll', () => {
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        updateScrub();
+        rafPending = false;
+      });
+    }, { passive: true });
+  }
+
+  // ── Intersection Observer (fade-in) ───────────────
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // ── Cookie banner ─────────────────────────────────
+  const banner = document.getElementById('cookie-banner');
+  if (localStorage.getItem('ald-cookies')) banner.classList.add('hidden');
+
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('ald-cookies', '1');
+    banner.classList.add('hidden');
+  });
+
+  function bindPrivacyBannerLink() {
+    const el = document.getElementById('privacy-link-banner');
+    if (el) el.addEventListener('click', (e) => { e.preventDefault(); openModal('privacy-modal'); });
+  }
+
+  // ── Modals ────────────────────────────────────────
+  function openModal(id) { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+  document.getElementById('privacy-link').addEventListener('click', e => { e.preventDefault(); openModal('privacy-modal'); });
+  document.getElementById('terms-link').addEventListener('click', e => { e.preventDefault(); openModal('terms-modal'); });
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+      closeMobile();
+    }
+  });
+
+  // ── Form ──────────────────────────────────────────
+  document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const name    = e.target.querySelector('#name').value.trim();
+    const phone   = e.target.querySelector('#phone').value.trim();
+    const service = e.target.querySelector('#service').value;
+    if (!name || !phone || !service) {
+      alert(i18n[lang]['form.err']);
+      return;
+    }
+    // Production: replace with Formspree / Netlify Forms / backend endpoint
+    alert(i18n[lang]['form.thanks']);
+    e.target.reset();
+  });
+
+  // ── Init ──────────────────────────────────────────
+  (function init() {
+    setLang(detectLang());
+    bindPrivacyBannerLink();
+  })();
+
+  </script>
+</body>
+</html>
