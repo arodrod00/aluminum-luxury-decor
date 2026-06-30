@@ -293,7 +293,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      will-change: auto;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     .hero-overlay {
       position: absolute;
@@ -889,9 +890,6 @@
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .form-row { grid-template-columns: 1fr; }
-      #hero { height: 100vh; }
-      #hero-video { display: none; }
-      .hero-sticky { background: linear-gradient(145deg, var(--navy) 0%, var(--blue) 100%); }
       .footer-main { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .gallery-grid { grid-template-columns: 1fr; }
