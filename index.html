@@ -278,13 +278,14 @@
     ═══════════════════════════════════════════════ */
     #hero {
       position: relative;
-      height: 350vh;
+      height: 100vh;
+      min-height: 100dvh;
       background: var(--navy);
+      overflow: hidden;
     }
     .hero-sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
+      position: relative;
+      height: 100%;
       overflow: hidden;
       background: var(--navy);
     }
@@ -975,6 +976,8 @@
         id="hero-video"
         src="hero.mp4"
         poster="images/gallery-pergola-kendall.jpg"
+        autoplay
+        loop
         muted
         playsinline
         preload="auto"
@@ -1000,65 +1003,6 @@
       <div class="hero-scroll" aria-hidden="true">
         <div class="scroll-line"></div>
         <span data-i18n="hero.scroll">Scroll</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="section-pad">
-    <div class="container">
-      <div class="services-header">
-        <p class="section-label fade-in" data-i18n="services.label">What We Build</p>
-        <h2 class="section-title fade-in fd1" data-i18n="services.title">Aluminum Structures Built for Your Life</h2>
-        <p class="section-desc fade-in fd2" data-i18n="services.desc">
-          From elegant pergolas to fully enclosed patio rooms — every project is custom-designed, permit-ready, and professionally installed.
-        </p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card fade-in">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l10-4 10 4"/><path d="M4 7v3M20 7v3M4 10h16"/><path d="M7 10v8M17 10v8"/></svg></div>
-          <h3 class="service-name" data-i18n="s1.name">Pergolas</h3>
-          <p class="service-desc" data-i18n="s1.desc">Custom aluminum pergolas with clean architectural lines. Louvered and fixed-roof options — designed for South Florida's sun and weather.</p>
-        </div>
-        <div class="service-card fade-in fd1">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9 20v-6h6v6"/></svg></div>
-          <h3 class="service-name" data-i18n="s2.name">Insulated Patios</h3>
-          <p class="service-desc" data-i18n="s2.desc">Insulated aluminum patio covers that keep your outdoor space cool year-round. Energy-efficient, low-maintenance, and Florida-ready.</p>
-        </div>
-        <div class="service-card fade-in fd2">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></div>
-          <h3 class="service-name" data-i18n="s3.name">Patio Rooms</h3>
-          <p class="service-desc" data-i18n="s3.desc">Fully enclosed aluminum patio rooms that extend your living area into the outdoors. Transform an underused space into a year-round room.</p>
-        </div>
-        <div class="service-card fade-in fd3">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg></div>
-          <h3 class="service-name" data-i18n="s4.name">Screen Enclosures</h3>
-          <p class="service-desc" data-i18n="s4.desc">High-quality screen enclosures for pools, patios, and lanais. Keep insects out while enjoying natural light and airflow all year.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section id="stats" aria-label="Company stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="fade-in">
-          <div class="stat-num">500+</div>
-          <p class="stat-label" data-i18n="stat1">Projects Completed</p>
-        </div>
-        <div class="fade-in fd1">
-          <div class="stat-num">10+</div>
-          <p class="stat-label" data-i18n="stat2">Years of Experience</p>
-        </div>
-        <div class="fade-in fd2">
-          <div class="stat-num">3</div>
-          <p class="stat-label" data-i18n="stat3">Counties Served</p>
-        </div>
-        <div class="fade-in fd3">
-          <div class="stat-num">100%</div>
-          <p class="stat-label" data-i18n="stat4">Client Satisfaction</p>
-        </div>
       </div>
     </div>
   </section>
@@ -1149,6 +1093,65 @@
         <div class="gallery-item fade-in fd2">
           <img class="gallery-ph" src="images/gallery-carport-aventura.jpg" alt="Custom aluminum carport — Aventura, FL" loading="lazy">
           <div class="gallery-overlay"><span data-i18n="gp7">Custom Carport — Aventura</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="services-header">
+        <p class="section-label fade-in" data-i18n="services.label">What We Build</p>
+        <h2 class="section-title fade-in fd1" data-i18n="services.title">Aluminum Structures Built for Your Life</h2>
+        <p class="section-desc fade-in fd2" data-i18n="services.desc">
+          From elegant pergolas to fully enclosed patio rooms — every project is custom-designed, permit-ready, and professionally installed.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l10-4 10 4"/><path d="M4 7v3M20 7v3M4 10h16"/><path d="M7 10v8M17 10v8"/></svg></div>
+          <h3 class="service-name" data-i18n="s1.name">Pergolas</h3>
+          <p class="service-desc" data-i18n="s1.desc">Custom aluminum pergolas with clean architectural lines. Louvered and fixed-roof options — designed for South Florida's sun and weather.</p>
+        </div>
+        <div class="service-card fade-in fd1">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9 20v-6h6v6"/></svg></div>
+          <h3 class="service-name" data-i18n="s2.name">Insulated Patios</h3>
+          <p class="service-desc" data-i18n="s2.desc">Insulated aluminum patio covers that keep your outdoor space cool year-round. Energy-efficient, low-maintenance, and Florida-ready.</p>
+        </div>
+        <div class="service-card fade-in fd2">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></div>
+          <h3 class="service-name" data-i18n="s3.name">Patio Rooms</h3>
+          <p class="service-desc" data-i18n="s3.desc">Fully enclosed aluminum patio rooms that extend your living area into the outdoors. Transform an underused space into a year-round room.</p>
+        </div>
+        <div class="service-card fade-in fd3">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg></div>
+          <h3 class="service-name" data-i18n="s4.name">Screen Enclosures</h3>
+          <p class="service-desc" data-i18n="s4.desc">High-quality screen enclosures for pools, patios, and lanais. Keep insects out while enjoying natural light and airflow all year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" aria-label="Company stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="fade-in">
+          <div class="stat-num">500+</div>
+          <p class="stat-label" data-i18n="stat1">Projects Completed</p>
+        </div>
+        <div class="fade-in fd1">
+          <div class="stat-num">10+</div>
+          <p class="stat-label" data-i18n="stat2">Years of Experience</p>
+        </div>
+        <div class="fade-in fd2">
+          <div class="stat-num">3</div>
+          <p class="stat-label" data-i18n="stat3">Counties Served</p>
+        </div>
+        <div class="fade-in fd3">
+          <div class="stat-num">100%</div>
+          <p class="stat-label" data-i18n="stat4">Client Satisfaction</p>
         </div>
       </div>
     </div>
@@ -1620,77 +1623,6 @@
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-  }
-
-  // ── Scroll-scrub video (forward + backward) ──────
-  const video = document.getElementById('hero-video');
-  const heroSection = document.getElementById('hero');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (video && !reducedMotion) {
-    // Never autoplay — we drive currentTime manually
-    video.pause();
-
-    // iOS Safari refuses to paint a seeked frame until play() has fired once
-    const primeVideo = () => {
-      const playPromise = video.play();
-      if (playPromise && typeof playPromise.then === 'function') {
-        playPromise.then(() => video.pause()).catch(() => {});
-      } else {
-        video.pause();
-      }
-    };
-
-    let targetFraction = 0;
-    const updateTarget = () => {
-      // Use getBoundingClientRect for accurate position relative to hero
-      const rect = heroSection.getBoundingClientRect();
-      const scrollRange = heroSection.offsetHeight - window.innerHeight;
-      // -rect.top = how many px the user has scrolled into the hero section
-      const scrolled = -rect.top;
-      targetFraction = Math.min(Math.max(scrolled / scrollRange, 0), 1);
-    };
-
-    // Smoothly eases currentTime toward the scroll target instead of jump-seeking
-    let tickRunning = false;
-    const tick = () => {
-      if (video.duration) {
-        const diff = targetFraction * video.duration - video.currentTime;
-        if (Math.abs(diff) > 0.005) {
-          video.currentTime += diff * 0.12;
-        }
-      }
-      if (tickRunning) requestAnimationFrame(tick);
-    };
-    const startTick = () => {
-      if (tickRunning) return;
-      tickRunning = true;
-      requestAnimationFrame(tick);
-    };
-    const stopTick = () => { tickRunning = false; };
-
-    const onReady = () => {
-      primeVideo();
-      updateTarget();
-      startTick();
-    };
-
-    if (video.readyState >= 2) {
-      onReady();
-    } else {
-      video.addEventListener('canplay', onReady, { once: true });
-    }
-
-    window.addEventListener('scroll', updateTarget, { passive: true });
-
-    // Pause the rAF loop when the tab isn't visible to save battery/CPU
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        stopTick();
-      } else {
-        startTick();
-      }
-    });
   }
 
   // ── Intersection Observer (fade-in) ───────────────
