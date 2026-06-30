@@ -74,7 +74,7 @@
        RESET & BASE
     ═══════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; background: var(--navy); }
     body {
       font-family: var(--font-body);
       font-size: var(--text-base);
@@ -280,7 +280,7 @@
       position: relative;
       height: 100vh;
       min-height: 100dvh;
-      background: var(--navy);
+      background: var(--navy) url('images/gallery-pergola-kendall.jpg') center/cover no-repeat;
       overflow: hidden;
     }
     .hero-sticky {
@@ -1623,6 +1623,17 @@
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+  }
+
+  // ── Hero video autoplay fallback ──────────────────
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    heroVideo.play().catch(() => {
+      // Autoplay blocked (reduce-motion policy or browser restriction)
+      // Poster image shows automatically; hide the video element so
+      // a black/transparent frame doesn't sit on top of the poster.
+      heroVideo.style.display = 'none';
+    });
   }
 
   // ── Intersection Observer (fade-in) ───────────────
