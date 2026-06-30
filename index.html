@@ -1634,42 +1634,66 @@
     // Never autoplay — we drive currentTime manually
     video.pause();
 
-    const seekVideo = (progress) => {
-      if (!video.duration) return;
-      const t = Math.min(Math.max(progress, 0), 1) * video.duration;
-      // fastSeek is smoother in Firefox; currentTime is precise in Chrome
-      if (typeof video.fastSeek === 'function') {
-        video.fastSeek(t);
+    // iOS Safari refuses to paint a seeked frame until play() has fired once
+    const primeVideo = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise.then(() => video.pause()).catch(() => {});
       } else {
-        video.currentTime = t;
+        video.pause();
       }
     };
 
-    const updateScrub = () => {
+    let targetFraction = 0;
+    const updateTarget = () => {
       // Use getBoundingClientRect for accurate position relative to hero
       const rect = heroSection.getBoundingClientRect();
       const scrollRange = heroSection.offsetHeight - window.innerHeight;
       // -rect.top = how many px the user has scrolled into the hero section
       const scrolled = -rect.top;
-      seekVideo(scrolled / scrollRange);
+      targetFraction = Math.min(Math.max(scrolled / scrollRange, 0), 1);
     };
 
-    // Make sure metadata is loaded before first seek
-    if (video.readyState >= 1) {
-      updateScrub();
+    // Smoothly eases currentTime toward the scroll target instead of jump-seeking
+    let tickRunning = false;
+    const tick = () => {
+      if (video.duration) {
+        const diff = targetFraction * video.duration - video.currentTime;
+        if (Math.abs(diff) > 0.005) {
+          video.currentTime += diff * 0.12;
+        }
+      }
+      if (tickRunning) requestAnimationFrame(tick);
+    };
+    const startTick = () => {
+      if (tickRunning) return;
+      tickRunning = true;
+      requestAnimationFrame(tick);
+    };
+    const stopTick = () => { tickRunning = false; };
+
+    const onReady = () => {
+      primeVideo();
+      updateTarget();
+      startTick();
+    };
+
+    if (video.readyState >= 2) {
+      onReady();
     } else {
-      video.addEventListener('loadedmetadata', updateScrub, { once: true });
+      video.addEventListener('canplay', onReady, { once: true });
     }
 
-    let rafPending = false;
-    window.addEventListener('scroll', () => {
-      if (rafPending) return;
-      rafPending = true;
-      requestAnimationFrame(() => {
-        updateScrub();
-        rafPending = false;
-      });
-    }, { passive: true });
+    window.addEventListener('scroll', updateTarget, { passive: true });
+
+    // Pause the rAF loop when the tab isn't visible to save battery/CPU
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopTick();
+      } else {
+        startTick();
+      }
+    });
   }
 
   // ── Intersection Observer (fade-in) ───────────────
