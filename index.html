@@ -229,6 +229,15 @@
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* Nav background when mobile menu is open — keeps hamburger X and logo visible */
+    #nav.menu-open {
+      background: rgba(255,255,255,0.97);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    #nav.menu-open .nav-logo { color: var(--navy); }
+    .hamburger.open span { background: var(--navy); }
 
     /* Mobile menu */
     #mobile-menu {
@@ -889,7 +898,7 @@
       .why-visual { aspect-ratio: 3/2; }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       .section-pad { padding: 4rem 0; }
       .section-pad-lg { padding: 5rem 0; }
       .nav-links, .nav-cta { display: none; }
@@ -910,6 +919,7 @@
       .stats-grid { grid-template-columns: 1fr; }
       #nav { padding: 1rem 1.25rem; }
       #nav.scrolled { padding: 0.875rem 1.25rem; }
+      .nav-logo span { display: none; }
     }
 
     /* Reduced motion */
@@ -1623,6 +1633,7 @@
     hamburger.classList.toggle('open', isOpen);
     hamburger.setAttribute('aria-expanded', String(isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    nav.classList.toggle('menu-open', isOpen);
   });
 
   function closeMobile() {
@@ -1630,6 +1641,7 @@
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    nav.classList.remove('menu-open');
   }
 
   // ── Hero video autoplay fallback ──────────────────
