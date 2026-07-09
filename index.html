@@ -9,6 +9,9 @@
   <meta property="og:title" content="Aluminum Luxury Decor Inc | Miami Pergola & Patio Specialists">
   <meta property="og:description" content="Custom aluminum pergolas, insulated patios, and screen enclosures built for South Florida. Free on-site estimate. Call (305) 308-5578.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://aluminum-luxury-decor.vercel.app/images/gallery-pergola-kendall.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="es_US">
   <!-- Favicon -->
@@ -923,6 +926,8 @@
 </head>
 <body>
 
+  <a href="#hero" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:99999;padding:0.5rem 1rem;background:var(--blue);color:white;border-radius:var(--radius);font-size:var(--text-sm);font-weight:500;transition:top 0.2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to content</a>
+
   <!-- COOKIE BANNER — fires before any tracking -->
   <div id="cookie-banner" role="alert" aria-live="polite">
     <p id="cookie-text">We use cookies to improve your experience. By continuing, you accept our use of cookies. <a href="#" id="privacy-link-banner" style="color:var(--blue-light);text-decoration:underline;">Learn more</a></p>
@@ -1295,7 +1300,7 @@
             </div>
             <div class="form-group">
               <label for="phone" data-i18n="form.phone">Phone *</label>
-              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(305) 000-0000" aria-required="true">
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(305) 000-0000" aria-required="true" pattern="[\d\s\(\)\-\+]{7,20}">
             </div>
           </div>
           <div class="form-group">
@@ -1321,6 +1326,7 @@
             <span data-i18n="form.submit">Send Quote Request</span> →
           </button>
           <p class="form-note" data-i18n="form.note">We'll respond within 24 hours. No spam, ever.</p>
+          <div id="form-success" role="status" aria-live="polite" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:rgba(46,115,196,0.12);border:1px solid var(--blue-mid);border-radius:var(--radius);color:var(--blue);font-size:var(--text-sm);text-align:center;"></div>
         </form>
       </div>
     </div>
@@ -1413,6 +1419,7 @@
       {"@type": "AdministrativeArea", "name": "Palm Beach County"}
     ],
     "url": "https://aluminumluxurydecorinc.com",
+    "image": "https://aluminum-luxury-decor.vercel.app/images/gallery-pergola-kendall.jpg",
     "sameAs": [
       "https://www.instagram.com/aluminumluxurydecorinc/",
       "https://www.tiktok.com/@aluminumluxurydecorinc"
@@ -1691,8 +1698,11 @@
       return;
     }
     // Production: replace with Formspree / Netlify Forms / backend endpoint
-    alert(i18n[lang]['form.thanks']);
+    const successEl = document.getElementById('form-success');
+    successEl.textContent = i18n[lang]['form.thanks'];
+    successEl.style.display = 'block';
     e.target.reset();
+    setTimeout(() => { successEl.style.display = 'none'; }, 6000);
   });
 
   // ── Init ──────────────────────────────────────────
