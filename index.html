@@ -1837,18 +1837,51 @@
   // ── Form ──────────────────────────────────────────
   document.getElementById('contact-form').addEventListener('submit', e => {
     e.preventDefault();
-    const name    = e.target.querySelector('#name').value.trim();
-    const phone   = e.target.querySelector('#phone').value.trim();
-    const service = e.target.querySelector('#service').value;
-    if (!name || !phone || !service) {
+    const f       = e.target;
+    const name    = f.querySelector('#name').value.trim();
+    const phone   = f.querySelector('#phone').value.trim();
+    const email   = f.querySelector('#email').value.trim();
+    const svcEl   = f.querySelector('#service');
+    const service = svcEl.options[svcEl.selectedIndex].text;
+    const message = f.querySelector('#message').value.trim();
+
+    if (!name || !phone || !svcEl.value) {
       alert(i18n[lang]['form.err']);
       return;
     }
-    // Production: replace with Formspree / Netlify Forms / backend endpoint
+
+    const isEs = lang === 'es';
+    const lines = isEs
+      ? [
+          '📋 *Nueva Solicitud de Cotización*',
+          '',
+          `👤 Nombre: ${name}`,
+          `📱 Teléfono: ${phone}`,
+          email   ? `📧 Correo: ${email}`     : null,
+          `🔧 Servicio: ${service}`,
+          message ? `📝 Detalles: ${message}` : null,
+          '',
+          '_Enviado desde aluminumluxurydecorinc.com_',
+        ]
+      : [
+          '📋 *New Quote Request*',
+          '',
+          `👤 Name: ${name}`,
+          `📱 Phone: ${phone}`,
+          email   ? `📧 Email: ${email}`      : null,
+          `🔧 Service: ${service}`,
+          message ? `📝 Details: ${message}`  : null,
+          '',
+          '_Sent from aluminumluxurydecorinc.com_',
+        ];
+
+    const text = lines.filter(l => l !== null).join('\n');
+    window.open('https://wa.me/13053085578?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+
     const successEl = document.getElementById('form-success');
     successEl.textContent = i18n[lang]['form.thanks'];
     successEl.style.display = 'block';
-    e.target.reset();
+    f.reset();
     setTimeout(() => { successEl.style.display = 'none'; }, 6000);
   });
 
