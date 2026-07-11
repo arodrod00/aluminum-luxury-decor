@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Aluminum Luxury Decor Inc | Pergolas, Patios & Screen Enclosures — Miami, FL</title>
   <meta name="description" content="Miami's premium aluminum pergola, insulated patio, screen enclosure, and patio room specialists. Serving Miami-Dade, Broward, and Palm Beach. Call (305) 308-5578 for a free quote.">
   <!-- Open Graph -->
@@ -970,8 +970,17 @@
       transition: max-width 0.35s ease, opacity 0.3s ease;
     }
     @media (max-width: 480px) {
-      .whatsapp-fab { padding: 0.75rem; border-radius: 50%; }
-      .whatsapp-fab-label { max-width: 0; opacity: 0; }
+      .whatsapp-fab {
+        width: 3.25rem;
+        height: 3.25rem;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+        border-radius: 50%;
+        bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+        right: 1.25rem;
+      }
+      .whatsapp-fab-label { display: none; }
     }
   </style>
 </head>
