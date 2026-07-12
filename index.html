@@ -561,7 +561,7 @@
     /* ═══════════════════════════════════════════════
        STATS
     ═══════════════════════════════════════════════ */
-    #stats { background: var(--navy); padding: 5rem 0; }
+    #stats { background: var(--navy); padding: 3rem 0; }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -1021,6 +1021,47 @@
     .about-read-more:hover { color: var(--blue); }
     .about-read-more svg { width: 1rem; height: 1rem; transition: transform 0.35s ease; flex-shrink: 0; }
     .about-read-more.expanded svg { transform: rotate(180deg); }
+
+    /* ── Process / Timeline ─────────────────────── */
+    #process { background: var(--gray-100); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .process-step {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.625rem 1.5rem;
+      display: flex;
+      gap: 1.125rem;
+      align-items: flex-start;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform 0.2s ease;
+    }
+    .process-step:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .process-num {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 300;
+      color: var(--blue-mid);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 2.5rem;
+      opacity: 0.6;
+    }
+    .process-content h4 {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .process-content p { font-size: var(--text-sm); color: var(--gray-500); margin: 0; line-height: 1.6; }
+    @media (max-width: 600px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
 
     /* ── Financing ──────────────────────────────── */
     .financing-section { background: var(--navy); color: var(--white); }
@@ -1484,6 +1525,65 @@
     </div>
   </section>
 
+  <!-- PROCESS -->
+  <section id="process" class="section-pad">
+    <div class="container">
+      <p class="section-label fade-in" data-i18n="process.label">How It Works</p>
+      <h2 class="section-title fade-in fd1" data-i18n="process.title">Your Project, Step by Step</h2>
+      <div class="process-grid">
+        <div class="process-step fade-in">
+          <div class="process-num">01</div>
+          <div class="process-content">
+            <h4 data-i18n="p1.name">Contact</h4>
+            <p data-i18n="p1.desc">Client submits their name, address, and phone number.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in fd1">
+          <div class="process-num">02</div>
+          <div class="process-content">
+            <h4 data-i18n="p2.name">Evaluation</h4>
+            <p data-i18n="p2.desc">We take measurements and listen to your needs on-site.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in fd2">
+          <div class="process-num">03</div>
+          <div class="process-content">
+            <h4 data-i18n="p3.name">Estimate</h4>
+            <p data-i18n="p3.desc">We deliver a detailed quote with the estimated timeline.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in fd3">
+          <div class="process-num">04</div>
+          <div class="process-content">
+            <h4 data-i18n="p4.name">References</h4>
+            <p data-i18n="p4.desc">We show you previous projects as examples of our work.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">05</div>
+          <div class="process-content">
+            <h4 data-i18n="p5.name">Scheduling</h4>
+            <p data-i18n="p5.desc">We schedule your project on our calendar.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in fd1">
+          <div class="process-num">06</div>
+          <div class="process-content">
+            <h4 data-i18n="p6.name">Execution</h4>
+            <p data-i18n="p6.desc">We complete the work within the agreed timeframe.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in fd2">
+          <div class="process-num">07</div>
+          <div class="process-content">
+            <h4 data-i18n="p7.name">Payment</h4>
+            <p data-i18n="p7.desc">Client pays via cash, card, Zelle, or financing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="section-pad" aria-label="Customer testimonials">
     <div class="container">
@@ -1844,6 +1944,14 @@
       'form.err':'Please fill in all required fields.',
       'form.thanks':'Thank you! We\'ll be in touch within 24 hours.',
       'whatsapp.cta':'Free Quote',
+      'process.label':'How It Works','process.title':'Your Project, Step by Step',
+      'p1.name':'Contact','p1.desc':'Client submits their name, address, and phone number.',
+      'p2.name':'Evaluation','p2.desc':'We take measurements and listen to your needs on-site.',
+      'p3.name':'Estimate','p3.desc':'We deliver a detailed quote with the estimated timeline.',
+      'p4.name':'References','p4.desc':'We show you previous projects as examples of our work.',
+      'p5.name':'Scheduling','p5.desc':'We schedule your project on our calendar.',
+      'p6.name':'Execution','p6.desc':'We complete the work within the agreed timeframe.',
+      'p7.name':'Payment','p7.desc':'Client pays via cash, card, Zelle, or financing.',
       'fin.label':'Financing Available',
       'fin.title':'Make Your Dream Space a Reality',
       'fin.desc':'We\'ve partnered with Synchrony Bank to offer flexible financing options — so nothing stands between you and the outdoor living space you\'ve always wanted.',
@@ -1933,6 +2041,14 @@
       'form.err':'Por favor completa todos los campos obligatorios.',
       'form.thanks':'¡Gracias! Nos pondremos en contacto contigo en 24 horas.',
       'whatsapp.cta':'Cotización Gratis',
+      'process.label':'Cómo Funciona','process.title':'Tu Proyecto, Paso a Paso',
+      'p1.name':'Contacto','p1.desc':'El cliente envía su nombre, dirección y teléfono.',
+      'p2.name':'Evaluación','p2.desc':'Tomamos medidas y escuchamos tus necesidades en el sitio.',
+      'p3.name':'Estimado','p3.desc':'Entregamos la cotización con el tiempo estimado del proyecto.',
+      'p4.name':'Referencias','p4.desc':'Mostramos proyectos anteriores como ejemplo de nuestro trabajo.',
+      'p5.name':'Programación','p5.desc':'Agendamos el trabajo en nuestro calendario.',
+      'p6.name':'Ejecución','p6.desc':'Realizamos el trabajo en el tiempo pactado.',
+      'p7.name':'Pago','p7.desc':'El cliente paga en efectivo, tarjeta, Zelle o financiamiento.',
       'fin.label':'Financiamiento Disponible',
       'fin.title':'Haz Realidad el Espacio que Sueñas',
       'fin.desc':'Nos asociamos con Synchrony Bank para ofrecerte opciones de financiamiento flexibles — para que nada te impida tener el espacio exterior que siempre quisiste.',
