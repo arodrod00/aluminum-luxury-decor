@@ -671,25 +671,6 @@
       pointer-events: none;
     }
     .gallery-item:hover .gallery-ph { transform: scale(1.05); }
-    .gallery-watermark {
-      position: absolute; inset: 0;
-      pointer-events: none;
-      background-image: repeating-linear-gradient(
-        -35deg,
-        transparent 0 90px,
-        rgba(247,249,252,0.28) 90px 91px,
-        transparent 91px 180px
-      );
-    }
-    .gallery-watermark::after {
-      content: "ALUMINUM LUXURY DECOR";
-      position: absolute; bottom: 0.6rem; right: 0.8rem;
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      color: rgba(247,249,252,0.55);
-      text-shadow: 0 1px 2px rgba(14,34,56,0.6);
-    }
     .gallery-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(14,34,56,0.72) 0%, transparent 55%);
@@ -1041,6 +1022,77 @@
     .about-read-more svg { width: 1rem; height: 1rem; transition: transform 0.35s ease; flex-shrink: 0; }
     .about-read-more.expanded svg { transform: rotate(180deg); }
 
+    /* ── Financing ──────────────────────────────── */
+    .financing-section { background: var(--navy); color: var(--white); }
+    .financing-inner { text-align: center; max-width: 740px; margin: 0 auto; }
+    .financing-section .section-label { color: rgba(255,255,255,0.55); }
+    .financing-section .section-label::before { background: rgba(255,255,255,0.35); }
+    .financing-section .section-title { color: var(--white); }
+    .financing-section .section-desc { color: rgba(255,255,255,0.78); margin-bottom: 2.5rem; }
+    .synchrony-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 3rem;
+      padding: 0.5rem 1.375rem;
+      margin-bottom: 1.875rem;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.88);
+    }
+    .synchrony-badge svg { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
+    .fin-benefits {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 0 0 2.75rem;
+      flex-wrap: wrap;
+    }
+    .fin-benefit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.625rem;
+      min-width: 140px;
+      max-width: 180px;
+    }
+    .fin-benefit-icon {
+      width: 3rem; height: 3rem;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .fin-benefit-icon svg { width: 1.25rem; height: 1.25rem; }
+    .fin-benefit strong { font-size: var(--text-sm); font-weight: 600; color: var(--white); line-height: 1.3; }
+    .fin-benefit p { font-size: var(--text-xs); color: rgba(255,255,255,0.55); margin: 0; line-height: 1.4; }
+    .fin-cta-wrap { margin-bottom: 1.5rem; }
+    .fin-cta {
+      display: inline-block;
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 600;
+      padding: 0.9rem 2.75rem;
+      border-radius: var(--radius);
+      transition: background var(--transition), transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      text-decoration: none;
+    }
+    .fin-cta:hover { background: var(--off-white); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.32); }
+    .fin-note { font-size: var(--text-xs); color: rgba(255,255,255,0.38); }
+    @media (max-width: 480px) {
+      .fin-benefits { gap: 1.25rem; }
+      .fin-benefit { min-width: 120px; }
+    }
+
     .whatsapp-fab {
       position: fixed;
       bottom: 1.75rem;
@@ -1269,37 +1321,30 @@
       <div class="gallery-grid">
         <div class="gallery-item fade-in">
           <img class="gallery-ph" src="images/gallery-pergola-kendall.jpg" alt="Aluminum pergola — Kendall, FL" loading="lazy">
-          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp2">Pergola — Kendall</span></div>
         </div>
         <div class="gallery-item fade-in fd1">
           <img class="gallery-ph" src="images/gallery-patio-doral.jpg" alt="Insulated patio — Doral, FL" loading="lazy">
-          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp1">Insulated Patio — Doral</span></div>
         </div>
         <div class="gallery-item fade-in fd2">
           <img class="gallery-ph" src="images/gallery-pergola-homestead.jpg" alt="Pergola — Homestead, FL" loading="lazy">
-          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp5">Pergola — Homestead</span></div>
         </div>
         <div class="gallery-item fade-in fd1">
           <img class="gallery-ph" src="images/gallery-screen-hialeah.jpg" alt="Screen enclosure — Hialeah, FL" loading="lazy">
-          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp3">Screen Enclosure — Hialeah</span></div>
         </div>
         <div class="gallery-item fade-in fd2">
           <img class="gallery-ph" src="images/gallery-room-coral-gables.jpg" alt="Patio room — Coral Gables, FL" loading="lazy">
-          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp4">Patio Room — Coral Gables</span></div>
         </div>
         <div class="gallery-item fade-in fd1">
           <img class="gallery-ph" src="images/gallery-patio-pinecrest.jpg" alt="Insulated patio — Pinecrest, FL" loading="lazy">
-          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp6">Insulated Patio — Pinecrest</span></div>
         </div>
         <div class="gallery-item fade-in fd2">
           <img class="gallery-ph" src="images/gallery-carport-aventura.jpg" alt="Custom aluminum carport — Aventura, FL" loading="lazy">
-          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp7">Custom Carport — Aventura</span></div>
         </div>
       </div>
@@ -1469,6 +1514,42 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCING -->
+  <section id="financing" class="section-pad financing-section">
+    <div class="container">
+      <div class="financing-inner fade-in">
+        <p class="section-label" data-i18n="fin.label">Financing Available</p>
+        <div class="synchrony-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          Synchrony Bank
+        </div>
+        <h2 class="section-title fade-in fd1" data-i18n="fin.title">Make Your Dream Space a Reality</h2>
+        <p class="section-desc fade-in fd2" data-i18n="fin.desc">We've partnered with Synchrony Bank to offer flexible financing options — so nothing stands between you and the outdoor living space you've always wanted.</p>
+        <div class="fin-benefits fade-in fd3">
+          <div class="fin-benefit">
+            <div class="fin-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <strong data-i18n="fin.b1">Quick Application</strong>
+            <p data-i18n="fin.b1d">Apply online in minutes</p>
+          </div>
+          <div class="fin-benefit">
+            <div class="fin-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <strong data-i18n="fin.b2">Flexible Plans</strong>
+            <p data-i18n="fin.b2d">Payments that fit your budget</p>
+          </div>
+          <div class="fin-benefit">
+            <div class="fin-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <strong data-i18n="fin.b3">Fast Decision</strong>
+            <p data-i18n="fin.b3d">Know your status right away</p>
+          </div>
+        </div>
+        <div class="fin-cta-wrap fade-in fd4">
+          <a href="https://www.synchrony.com/mmc/HQ236550800" target="_blank" rel="noopener noreferrer" class="fin-cta" data-i18n="fin.cta">Apply for Financing</a>
+        </div>
+        <p class="fin-note fade-in fd4" data-i18n="fin.note">Subject to credit approval. Financing offered through Synchrony Bank.</p>
       </div>
     </div>
   </section>
@@ -1748,6 +1829,14 @@
       'form.err':'Please fill in all required fields.',
       'form.thanks':'Thank you! We\'ll be in touch within 24 hours.',
       'whatsapp.cta':'Free Quote',
+      'fin.label':'Financing Available',
+      'fin.title':'Make Your Dream Space a Reality',
+      'fin.desc':'We\'ve partnered with Synchrony Bank to offer flexible financing options — so nothing stands between you and the outdoor living space you\'ve always wanted.',
+      'fin.b1':'Quick Application','fin.b1d':'Apply online in minutes',
+      'fin.b2':'Flexible Plans','fin.b2d':'Payments that fit your budget',
+      'fin.b3':'Fast Decision','fin.b3d':'Know your status right away',
+      'fin.cta':'Apply for Financing',
+      'fin.note':'Subject to credit approval. Financing offered through Synchrony Bank.',
       'about.readmore':'Read More',
       'about.readless':'Read Less',
       'about.story':`<h3>More Than a Company — A Dream We Chose to Build Together</h3>
@@ -1828,6 +1917,14 @@
       'form.err':'Por favor completa todos los campos obligatorios.',
       'form.thanks':'¡Gracias! Nos pondremos en contacto contigo en 24 horas.',
       'whatsapp.cta':'Cotización Gratis',
+      'fin.label':'Financiamiento Disponible',
+      'fin.title':'Haz Realidad el Espacio que Sueñas',
+      'fin.desc':'Nos asociamos con Synchrony Bank para ofrecerte opciones de financiamiento flexibles — para que nada te impida tener el espacio exterior que siempre quisiste.',
+      'fin.b1':'Solicitud Rápida','fin.b1d':'Aplica en línea en minutos',
+      'fin.b2':'Planes Flexibles','fin.b2d':'Pagos que se adaptan a tu presupuesto',
+      'fin.b3':'Decisión Inmediata','fin.b3d':'Conoce tu aprobación de inmediato',
+      'fin.cta':'Solicitar Financiamiento',
+      'fin.note':'Sujeto a aprobación de crédito. Financiamiento ofrecido por Synchrony Bank.',
       'about.readmore':'Leer más',
       'about.readless':'Leer menos',
       'about.story':`<h3>Más Que Una Empresa — Un Sueño Que Elegimos Construir Juntos</h3>
