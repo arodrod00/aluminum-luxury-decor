@@ -666,8 +666,30 @@
       object-fit: cover;
       display: block;
       transition: transform 0.6s var(--ease);
+      -webkit-user-drag: none;
+      user-select: none;
+      pointer-events: none;
     }
     .gallery-item:hover .gallery-ph { transform: scale(1.05); }
+    .gallery-watermark {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(
+        -35deg,
+        transparent 0 90px,
+        rgba(247,249,252,0.28) 90px 91px,
+        transparent 91px 180px
+      );
+    }
+    .gallery-watermark::after {
+      content: "ALUMINUM LUXURY DECOR";
+      position: absolute; bottom: 0.6rem; right: 0.8rem;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: rgba(247,249,252,0.55);
+      text-shadow: 0 1px 2px rgba(14,34,56,0.6);
+    }
     .gallery-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(14,34,56,0.72) 0%, transparent 55%);
@@ -966,6 +988,59 @@
     }
 
     /* ── WhatsApp Floating Button ─────────────────── */
+    /* ── About Story (Read More) ─────────────────── */
+    .about-story { margin-top: 2.75rem; padding-top: 2.25rem; border-top: 1px solid var(--gray-200); }
+    .about-story-wrap { position: relative; }
+    .about-story-body {
+      overflow: hidden;
+      max-height: 8rem;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: var(--text-base);
+      color: var(--gray-700);
+      line-height: 1.85;
+    }
+    .about-story-body.expanded { max-height: 4000px; }
+    .about-story-body h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+    .about-story-body p { margin-bottom: 1rem; }
+    .about-story-body p:last-child { margin-bottom: 0; }
+    .about-story-body ul { margin: 0.5rem 0 1.25rem 1.5rem; }
+    .about-story-body ul li { margin-bottom: 0.35rem; font-style: italic; }
+    .about-story-body .story-close { font-style: italic; color: var(--navy); font-weight: 500; margin-top: 1.5rem; }
+    .about-story-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5rem;
+      background: linear-gradient(to bottom, transparent, var(--white));
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .about-story-body.expanded ~ .about-story-fade { opacity: 0; pointer-events: none; }
+    .about-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      margin-top: 1.125rem;
+      background: none;
+      border: none;
+      color: var(--blue-mid);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.25rem 0;
+      transition: color var(--transition);
+    }
+    .about-read-more:hover { color: var(--blue); }
+    .about-read-more svg { width: 1rem; height: 1rem; transition: transform 0.35s ease; flex-shrink: 0; }
+    .about-read-more.expanded svg { transform: rotate(180deg); }
+
     .whatsapp-fab {
       position: fixed;
       bottom: 1.75rem;
@@ -1165,6 +1240,19 @@
           </div>
         </div>
       </div>
+
+      <!-- Our Story — expandable -->
+      <div class="about-story fade-in fd4">
+        <div class="about-story-wrap">
+          <div class="about-story-body" id="about-story-body" data-i18n="about.story">
+          </div>
+          <div class="about-story-fade" id="about-story-fade"></div>
+        </div>
+        <button class="about-read-more" id="about-read-more" onclick="toggleStory()" aria-expanded="false">
+          <span id="about-read-more-label" data-i18n="about.readmore">Read More</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1181,30 +1269,37 @@
       <div class="gallery-grid">
         <div class="gallery-item fade-in">
           <img class="gallery-ph" src="images/gallery-pergola-kendall.jpg" alt="Aluminum pergola — Kendall, FL" loading="lazy">
+          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp2">Pergola — Kendall</span></div>
         </div>
         <div class="gallery-item fade-in fd1">
           <img class="gallery-ph" src="images/gallery-patio-doral.jpg" alt="Insulated patio — Doral, FL" loading="lazy">
+          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp1">Insulated Patio — Doral</span></div>
         </div>
         <div class="gallery-item fade-in fd2">
           <img class="gallery-ph" src="images/gallery-pergola-homestead.jpg" alt="Pergola — Homestead, FL" loading="lazy">
+          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp5">Pergola — Homestead</span></div>
         </div>
         <div class="gallery-item fade-in fd1">
           <img class="gallery-ph" src="images/gallery-screen-hialeah.jpg" alt="Screen enclosure — Hialeah, FL" loading="lazy">
+          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp3">Screen Enclosure — Hialeah</span></div>
         </div>
         <div class="gallery-item fade-in fd2">
           <img class="gallery-ph" src="images/gallery-room-coral-gables.jpg" alt="Patio room — Coral Gables, FL" loading="lazy">
+          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp4">Patio Room — Coral Gables</span></div>
         </div>
         <div class="gallery-item fade-in fd1">
           <img class="gallery-ph" src="images/gallery-patio-pinecrest.jpg" alt="Insulated patio — Pinecrest, FL" loading="lazy">
+          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp6">Insulated Patio — Pinecrest</span></div>
         </div>
         <div class="gallery-item fade-in fd2">
           <img class="gallery-ph" src="images/gallery-carport-aventura.jpg" alt="Custom aluminum carport — Aventura, FL" loading="lazy">
+          <div class="gallery-watermark"></div>
           <div class="gallery-overlay"><span data-i18n="gp7">Custom Carport — Aventura</span></div>
         </div>
       </div>
@@ -1653,6 +1748,24 @@
       'form.err':'Please fill in all required fields.',
       'form.thanks':'Thank you! We\'ll be in touch within 24 hours.',
       'whatsapp.cta':'Free Quote',
+      'about.readmore':'Read More',
+      'about.readless':'Read Less',
+      'about.story':`<h3>More Than a Company — A Dream We Chose to Build Together</h3>
+<p>Aluminum Luxury Decor Inc. was born from more than an idea. It was born from a dream, a love story, and the desire to build a future together as a family.</p>
+<p>For more than five years, my husband dedicated himself to learning, working, and gaining the hands-on experience and knowledge that would one day become the foundation of our company. He had the talent, the skills, and the vision. He simply needed someone to believe in that vision as deeply as he did.</p>
+<p>When we met, I saw his potential. I believed in his dreams, in his knowledge, and most importantly, in him.</p>
+<p>As his wife, I chose not only to stand beside him, but to support him, encourage him, and fight alongside him for the future we imagined together. His dream became my dream, and somewhere along the way, it became our dream.</p>
+<p>Together, we decided to take a chance on ourselves and create Aluminum Luxury Decor Inc.</p>
+<p>We started small, with very few clients and countless hopes. There were challenges, sacrifices, long days, and moments when moving forward required faith and determination. But through every step, we supported one another, learned together, and continued fighting for the family and the company we were building.</p>
+<p>A few special clients trusted us when our name was still new. They opened the doors of their homes to us and believed in our work. Those first customers will forever hold a special place in our hearts because they didn't simply hire a company — they became part of our story and the beginning of what we proudly call our pergola family.</p>
+<p>Today, that family has grown beyond what we once imagined.</p>
+<p>Every pergola, aluminum fence, and outdoor space we create carries a piece of our story. We understand that we are not simply building structures. We are helping families transform their homes into spaces where birthdays will be celebrated, dinners will be shared, children will grow, and memories will be created.</p>
+<p>That is why every project matters to us.</p>
+<p>We build with dedication, honesty, attention to detail, and pride — because behind our company is a husband and wife who know what it means to dream together, support one another, and work side by side to turn a vision into reality.</p>
+<p>We are proud of how far we have come, but we will never forget where we started:</p>
+<ul><li>A man with years of knowledge and a dream.</li><li>A wife who believed in him and chose to fight beside him.</li><li>Two people who decided to build their future together.</li></ul>
+<p>Our story is still being written — one project, one dream, and one family at a time.</p>
+<p class="story-close">Welcome to the Aluminum Luxury Decor Inc. family.<br>Where your vision becomes part of our story.</p>`,
     },
     es: {
       'nav.services':'Servicios','nav.about':'Nosotros','nav.gallery':'Galería','nav.contact':'Contacto','nav.cta':'Cotización Gratis',
@@ -1715,6 +1828,24 @@
       'form.err':'Por favor completa todos los campos obligatorios.',
       'form.thanks':'¡Gracias! Nos pondremos en contacto contigo en 24 horas.',
       'whatsapp.cta':'Cotización Gratis',
+      'about.readmore':'Leer más',
+      'about.readless':'Leer menos',
+      'about.story':`<h3>Más Que Una Empresa — Un Sueño Que Elegimos Construir Juntos</h3>
+<p>Aluminum Luxury Decor Inc. nació de algo más que una idea. Nació de un sueño, una historia de amor y el deseo de construir un futuro juntos como familia.</p>
+<p>Por más de cinco años, mi esposo se dedicó a aprender, trabajar y adquirir la experiencia y el conocimiento que un día serían la base de nuestra empresa. Tenía el talento, las habilidades y la visión. Solo necesitaba a alguien que creyera en esa visión con la misma profundidad que él.</p>
+<p>Cuando nos conocimos, vi su potencial. Creí en sus sueños, en su conocimiento y, lo más importante, en él.</p>
+<p>Como su esposa, elegí no solo estar a su lado, sino apoyarlo, alentarlo y luchar junto a él por el futuro que imaginamos juntos. Su sueño se convirtió en mi sueño y, con el tiempo, se convirtió en nuestro sueño.</p>
+<p>Juntos decidimos apostar por nosotros mismos y crear Aluminum Luxury Decor Inc.</p>
+<p>Empezamos pequeño, con muy pocos clientes y muchísimas esperanzas. Hubo desafíos, sacrificios, días largos y momentos en los que seguir adelante requirió fe y determinación. Pero en cada paso, nos apoyamos mutuamente, aprendimos juntos y continuamos luchando por la familia y la empresa que estábamos construyendo.</p>
+<p>Algunos clientes especiales confiaron en nosotros cuando nuestro nombre era aún desconocido. Abrieron las puertas de sus hogares y creyeron en nuestro trabajo. Esos primeros clientes siempre tendrán un lugar especial en nuestros corazones, porque no simplemente contrataron una empresa — se convirtieron en parte de nuestra historia y en el comienzo de lo que hoy llamamos con orgullo nuestra familia de pérgolas.</p>
+<p>Hoy, esa familia ha crecido más allá de lo que alguna vez imaginamos.</p>
+<p>Cada pérgola, cerca de aluminio y espacio exterior que creamos lleva un pedazo de nuestra historia. Sabemos que no solo estamos construyendo estructuras. Estamos ayudando a las familias a transformar sus hogares en espacios donde se celebrarán cumpleaños, se compartirán cenas, los niños crecerán y se crearán recuerdos.</p>
+<p>Por eso cada proyecto nos importa.</p>
+<p>Construimos con dedicación, honestidad, atención al detalle y orgullo — porque detrás de nuestra empresa hay un esposo y una esposa que saben lo que significa soñar juntos, apoyarse mutuamente y trabajar lado a lado para convertir una visión en realidad.</p>
+<p>Estamos orgullosos de lo lejos que hemos llegado, pero nunca olvidaremos de dónde venimos:</p>
+<ul><li>Un hombre con años de conocimiento y un sueño.</li><li>Una esposa que creyó en él y eligió luchar a su lado.</li><li>Dos personas que decidieron construir su futuro juntas.</li></ul>
+<p>Nuestra historia sigue escribiéndose — un proyecto, un sueño y una familia a la vez.</p>
+<p class="story-close">Bienvenido a la familia de Aluminum Luxury Decor Inc.<br>Donde tu visión se convierte en parte de nuestra historia.</p>`,
     }
   };
 
@@ -1744,6 +1875,22 @@
       btn.setAttribute('aria-pressed', String(isActive));
     });
     localStorage.setItem('ald-lang', l);
+    // Sync read-more label with current expanded state
+    const storyLabel = document.getElementById('about-read-more-label');
+    if (storyLabel) {
+      const isExpanded = document.getElementById('about-story-body').classList.contains('expanded');
+      storyLabel.textContent = i18n[l][isExpanded ? 'about.readless' : 'about.readmore'];
+    }
+  }
+
+  function toggleStory() {
+    const body = document.getElementById('about-story-body');
+    const btn  = document.getElementById('about-read-more');
+    const lbl  = document.getElementById('about-read-more-label');
+    const expanded = body.classList.toggle('expanded');
+    btn.classList.toggle('expanded', expanded);
+    btn.setAttribute('aria-expanded', String(expanded));
+    lbl.textContent = i18n[lang][expanded ? 'about.readless' : 'about.readmore'];
   }
 
   function detectLang() {
@@ -1900,6 +2047,15 @@
     setLang(detectLang());
     bindPrivacyBannerLink();
   })();
+
+  // ── Basic photo-protection deterrents (gallery + about photos) ──
+  // Note: this discourages casual copying (right-click save, drag-out).
+  // It cannot block screenshots or dev-tools inspection — the watermark
+  // baked into the image is the real protection against those.
+  document.querySelectorAll('.gallery-ph, .about-img-main img, .why-visual img').forEach(img => {
+    img.addEventListener('contextmenu', e => e.preventDefault());
+    img.addEventListener('dragstart', e => e.preventDefault());
+  });
 
   </script>
 
