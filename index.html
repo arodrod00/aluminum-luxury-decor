@@ -363,6 +363,13 @@
       padding: 2rem;
       color: var(--white);
     }
+    .hero-logo {
+      width: clamp(100px, 22vw, 160px);
+      height: auto;
+      display: block;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.55));
+    }
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -1468,6 +1475,7 @@
       ></video>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
+        <img src="images/logo.png" alt="Aluminum Luxury Decor Inc" class="hero-logo">
         <div class="hero-eyebrow">
           <span data-i18n="hero.eyebrow">Miami · South Florida</span>
         </div>
