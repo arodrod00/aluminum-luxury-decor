@@ -649,13 +649,15 @@
     }
     /* 3D stage — perspective lives here */
     .circ-stage {
-      --radius: 520px;
+      --radius: 560px;
       position: relative;
-      width: 100%; height: 540px;
+      width: 100%; height: 600px;
       display: flex; align-items: center; justify-content: center;
       perspective: 1800px;
       user-select: none;
+      cursor: grab;
     }
+    .circ-stage.dragging { cursor: grabbing; }
     /* Rotating ring — all cards are children */
     .circ-ring {
       position: relative;
@@ -665,9 +667,9 @@
     /* Individual service card */
     .circ-card {
       position: absolute;
-      width: 256px; height: 336px;
+      width: 300px; height: 390px;
       left: 50%; top: 50%;
-      margin-left: -128px; margin-top: -168px;
+      margin-left: -150px; margin-top: -195px;
       border-radius: 14px;
       overflow: hidden;
       cursor: pointer;
@@ -997,8 +999,8 @@
     @media (max-width: 1024px) {
       .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
       .footer-main { grid-template-columns: 1fr 1fr; }
-      .circ-stage { --radius: 420px; height: 460px; }
-      .circ-card { width: 220px; height: 290px; margin-left: -110px; margin-top: -145px; }
+      .circ-stage { --radius: 460px; height: 520px; }
+      .circ-card { width: 260px; height: 340px; margin-left: -130px; margin-top: -170px; }
       .why-visual { aspect-ratio: 3/2; }
     }
 
@@ -1010,8 +1012,8 @@
       .form-row { grid-template-columns: 1fr; }
       .footer-main { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .circ-stage { --radius: 290px; height: 380px; }
-      .circ-card { width: 185px; height: 244px; margin-left: -92px; margin-top: -122px; }
+      .circ-stage { --radius: 310px; height: 420px; }
+      .circ-card { width: 210px; height: 275px; margin-left: -105px; margin-top: -137px; }
       .circ-card-label { font-size: var(--text-base); padding: 1rem 0.875rem 0.875rem; }
       .gallery-header { flex-direction: column; align-items: flex-start; }
       .gal-modal-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2347,20 +2349,27 @@
     const stage = document.getElementById('circ-stage');
     if (!ring || !stage) return;
 
-    const N          = galleryServices.length;
-    const ANGLE_STEP = 360 / N;
-    const SPEED      = 0.18; // degrees per frame
-    let rotation     = 0;
-    let hovering     = false;
-    let modalOpen    = false;
-    let sectionVis   = true;
+    const N           = galleryServices.length;
+    const ANGLE_STEP  = 360 / N;
+    const SPEED       = 0.18;       // deg per frame during auto-spin
+    const DRAG_FACTOR = 0.35;       // px → degrees conversion
+    const RESUME_MS   = 3000;       // ms to wait before resuming auto-spin
 
-    // Build cards
+    let rotation    = 0;
+    let modalOpen   = false;
+    let sectionVis  = true;
+    let isDragging  = false;
+    let dragStartX  = 0;
+    let rotAtDrag   = 0;
+    let resumeTimer = null;
+    let userPaused  = false; // true while in manual-pause window
+
+    // ── Build cards ──────────────────────────────
     galleryServices.forEach((svc, i) => {
       const angle = i * ANGLE_STEP;
       const card  = document.createElement('div');
-      card.className   = 'circ-card';
-      card.tabIndex    = 0;
+      card.className = 'circ-card';
+      card.tabIndex  = 0;
       card.setAttribute('role', 'button');
       card.style.transform = `rotateY(${angle}deg) translateZ(var(--radius))`;
 
@@ -2371,46 +2380,99 @@
       img.addEventListener('dragstart',   e => e.preventDefault());
 
       const label = document.createElement('div');
-      label.className      = 'circ-card-label';
-      label.dataset.i18n   = svc.i18n; // picked up by setLang()
+      label.className    = 'circ-card-label';
+      label.dataset.i18n = svc.i18n;
 
       card.appendChild(img);
       card.appendChild(label);
-
-      card.addEventListener('click',     () => openGalleryModal(svc));
-      card.addEventListener('keydown',   e  => { if (e.key==='Enter'||e.key===' ') openGalleryModal(svc); });
-      card.addEventListener('mouseenter',() => { hovering = true; });
-      card.addEventListener('mouseleave',() => { hovering = false; });
+      card.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') openGalleryModal(svc); });
       ring.appendChild(card);
     });
 
-    // Opacity: front card = 1.0, back card = 0.25
+    // ── Opacity based on facing angle ─────────────
     function updateOpacity() {
       ring.querySelectorAll('.circ-card').forEach((card, i) => {
-        const angle = i * ANGLE_STEP;
-        const rel   = ((angle + rotation) % 360 + 360) % 360;
-        const norm  = rel > 180 ? 360 - rel : rel;
-        card.style.opacity = (Math.max(0.25, 1 - norm / 190)).toFixed(3);
+        const rel  = ((i * ANGLE_STEP + rotation) % 360 + 360) % 360;
+        const norm = rel > 180 ? 360 - rel : rel;
+        card.style.opacity = Math.max(0.22, 1 - norm / 190).toFixed(3);
       });
     }
 
-    // Animation loop
+    function applyRotation(deg) {
+      rotation = ((deg % 360) + 360) % 360;
+      ring.style.transform = `rotateY(${rotation}deg)`;
+      updateOpacity();
+    }
+
+    // ── Animation loop ────────────────────────────
     function tick() {
-      if (sectionVis && !hovering && !modalOpen) {
-        rotation = (rotation + SPEED) % 360;
-        ring.style.transform = `rotateY(${rotation}deg)`;
-        updateOpacity();
+      if (sectionVis && !isDragging && !userPaused && !modalOpen) {
+        applyRotation(rotation + SPEED);
       }
       requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
 
-    // Pause when section scrolls out of view
+    // ── Resume auto-spin after manual interaction ──
+    function scheduleResume() {
+      userPaused = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { userPaused = false; }, RESUME_MS);
+    }
+
+    // ── Pointer drag (mouse + touch via pointer events) ──
+    stage.addEventListener('pointerdown', e => {
+      // Ignore if click landed on a card button (let click handler fire)
+      if (e.target.closest('.circ-card')) {
+        dragStartX = e.clientX;
+        rotAtDrag  = rotation;
+        isDragging = false; // may become true on move
+        return;
+      }
+      isDragging = true;
+      dragStartX = e.clientX;
+      rotAtDrag  = rotation;
+      stage.classList.add('dragging');
+      stage.setPointerCapture(e.pointerId);
+    });
+
+    stage.addEventListener('pointermove', e => {
+      if (!isDragging) return;
+      const delta = (e.clientX - dragStartX) * DRAG_FACTOR;
+      applyRotation(rotAtDrag + delta);
+    });
+
+    stage.addEventListener('pointerup', e => {
+      if (isDragging) {
+        isDragging = false;
+        stage.classList.remove('dragging');
+        scheduleResume();
+      }
+    });
+
+    stage.addEventListener('pointercancel', () => {
+      isDragging = false;
+      stage.classList.remove('dragging');
+      scheduleResume();
+    });
+
+    // Card click — only fires if pointer didn't move much (not a drag)
+    stage.addEventListener('click', e => {
+      const card = e.target.closest('.circ-card');
+      if (!card) return;
+      const idx = Array.from(ring.children).indexOf(card);
+      if (idx !== -1) {
+        scheduleResume();
+        openGalleryModal(galleryServices[idx]);
+      }
+    });
+
+    // ── Pause when section out of view ────────────
     new IntersectionObserver(entries => {
       sectionVis = entries[0].isIntersecting;
     }, { threshold: 0.05 }).observe(stage);
 
-    // ── Modal ────────────────────────────────────
+    // ── Modal ─────────────────────────────────────
     const modal      = document.getElementById('gal-modal');
     const modalTitle = document.getElementById('gal-modal-title');
     const modalGrid  = document.getElementById('gal-modal-grid');
@@ -2442,6 +2504,7 @@
       modal.classList.remove('open');
       document.body.style.overflow = '';
       modalOpen = false;
+      scheduleResume();
     }
 
     modalClose.addEventListener('click', closeGalleryModal);
