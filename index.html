@@ -639,49 +639,118 @@
     .badge-text span { font-size: var(--text-xs); color: var(--gray-500); }
 
     /* ═══════════════════════════════════════════════
-       GALLERY
+       GALLERY — CIRCULAR 3D
     ═══════════════════════════════════════════════ */
-    #gallery { background: var(--off-white); }
+    #gallery { background: var(--off-white); overflow: hidden; }
     .gallery-header {
       display: flex; align-items: flex-end;
       justify-content: space-between;
-      margin-bottom: 3rem; gap: 2rem;
+      margin-bottom: 2.5rem; gap: 2rem;
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-    .gallery-item {
-      background: var(--gray-200);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      aspect-ratio: 4/3;
+    /* 3D stage — perspective lives here */
+    .circ-stage {
+      --radius: 520px;
       position: relative;
-      cursor: pointer;
+      width: 100%; height: 540px;
+      display: flex; align-items: center; justify-content: center;
+      perspective: 1800px;
+      user-select: none;
     }
-    .gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
-    .gallery-ph {
+    /* Rotating ring — all cards are children */
+    .circ-ring {
+      position: relative;
+      width: 100%; height: 100%;
+      transform-style: preserve-3d;
+    }
+    /* Individual service card */
+    .circ-card {
+      position: absolute;
+      width: 256px; height: 336px;
+      left: 50%; top: 50%;
+      margin-left: -128px; margin-top: -168px;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+      transition: box-shadow 0.3s ease;
+      will-change: opacity;
+    }
+    .circ-card:hover { box-shadow: 0 18px 52px rgba(0,0,0,0.45); }
+    .circ-card:focus-visible { outline: 3px solid var(--blue-mid); outline-offset: 3px; }
+    .circ-card img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.6s var(--ease);
-      -webkit-user-drag: none;
-      user-select: none;
       pointer-events: none;
+      -webkit-user-drag: none;
     }
-    .gallery-item:hover .gallery-ph { transform: scale(1.05); }
-    .gallery-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(14,34,56,0.72) 0%, transparent 55%);
-      opacity: 0; transition: opacity var(--transition);
-      display: flex; align-items: flex-end; padding: 1.5rem;
-    }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-overlay span {
+    .circ-card-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.375rem 1.125rem 1.125rem;
+      background: linear-gradient(to top, rgba(10,25,48,0.88) 0%, transparent 100%);
+      color: var(--white);
       font-family: var(--font-display);
       font-size: var(--text-xl);
-      color: white; font-weight: 400;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    /* Hint text below carousel */
+    .circ-hint {
+      text-align: center;
+      margin-top: 1.75rem;
+      font-size: var(--text-sm);
+      color: var(--gray-500);
+      letter-spacing: 0.04em;
+    }
+    /* ── Gallery service modal ── */
+    .gal-modal {
+      display: none; position: fixed; inset: 0; z-index: 1100;
+      background: rgba(8,20,38,0.88);
+      align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .gal-modal.open { display: flex; }
+    .gal-modal-panel {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      max-width: 920px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      padding: 2.5rem 2.5rem 2rem;
+      position: relative;
+    }
+    .gal-modal-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: none; border: none; cursor: pointer;
+      color: var(--gray-400); padding: 0.375rem;
+      border-radius: 50%;
+      transition: color var(--transition), background var(--transition);
+      display: flex;
+    }
+    .gal-modal-close:hover { color: var(--navy); background: var(--gray-100); }
+    .gal-modal-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl); font-weight: 400;
+      color: var(--navy); margin-bottom: 1.75rem;
+    }
+    .gal-modal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.875rem;
+    }
+    .gal-modal-grid img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      pointer-events: none;
+      -webkit-user-drag: none;
+      display: block;
+    }
+    .gal-modal-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--gray-500);
+      font-size: var(--text-base);
     }
 
     /* ═══════════════════════════════════════════════
@@ -928,8 +997,8 @@
     @media (max-width: 1024px) {
       .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
       .footer-main { grid-template-columns: 1fr 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-item:first-child { grid-column: span 2; }
+      .circ-stage { --radius: 420px; height: 460px; }
+      .circ-card { width: 220px; height: 290px; margin-left: -110px; margin-top: -145px; }
       .why-visual { aspect-ratio: 3/2; }
     }
 
@@ -941,9 +1010,11 @@
       .form-row { grid-template-columns: 1fr; }
       .footer-main { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item:first-child { grid-column: span 1; }
+      .circ-stage { --radius: 290px; height: 380px; }
+      .circ-card { width: 185px; height: 244px; margin-left: -92px; margin-top: -122px; }
+      .circ-card-label { font-size: var(--text-base); padding: 1rem 0.875rem 0.875rem; }
       .gallery-header { flex-direction: column; align-items: flex-start; }
+      .gal-modal-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .about-badge { left: 0; }
     }
@@ -1365,38 +1436,24 @@
         </div>
         <a href="#contact" class="btn-primary fade-in fd2" data-i18n="gallery.cta">Start Your Project</a>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item fade-in">
-          <img class="gallery-ph" src="images/gallery-pergola-kendall.jpg" alt="Aluminum pergola — Kendall, FL" loading="lazy">
-          <div class="gallery-overlay"><span data-i18n="gp2">Pergola — Kendall</span></div>
-        </div>
-        <div class="gallery-item fade-in fd1">
-          <img class="gallery-ph" src="images/gallery-patio-doral.jpg" alt="Insulated patio — Doral, FL" loading="lazy">
-          <div class="gallery-overlay"><span data-i18n="gp1">Insulated Patio — Doral</span></div>
-        </div>
-        <div class="gallery-item fade-in fd2">
-          <img class="gallery-ph" src="images/gallery-pergola-homestead.jpg" alt="Pergola — Homestead, FL" loading="lazy">
-          <div class="gallery-overlay"><span data-i18n="gp5">Pergola — Homestead</span></div>
-        </div>
-        <div class="gallery-item fade-in fd1">
-          <img class="gallery-ph" src="images/gallery-screen-hialeah.jpg" alt="Screen enclosure — Hialeah, FL" loading="lazy">
-          <div class="gallery-overlay"><span data-i18n="gp3">Screen Enclosure — Hialeah</span></div>
-        </div>
-        <div class="gallery-item fade-in fd2">
-          <img class="gallery-ph" src="images/gallery-room-coral-gables.jpg" alt="Patio room — Coral Gables, FL" loading="lazy">
-          <div class="gallery-overlay"><span data-i18n="gp4">Patio Room — Coral Gables</span></div>
-        </div>
-        <div class="gallery-item fade-in fd1">
-          <img class="gallery-ph" src="images/gallery-patio-pinecrest.jpg" alt="Insulated patio — Pinecrest, FL" loading="lazy">
-          <div class="gallery-overlay"><span data-i18n="gp6">Insulated Patio — Pinecrest</span></div>
-        </div>
-        <div class="gallery-item fade-in fd2">
-          <img class="gallery-ph" src="images/gallery-carport-aventura.jpg" alt="Custom aluminum carport — Aventura, FL" loading="lazy">
-          <div class="gallery-overlay"><span data-i18n="gp7">Custom Carport — Aventura</span></div>
-        </div>
+      <!-- Circular 3D gallery — cards injected by JS -->
+      <div class="circ-stage" id="circ-stage" role="region" aria-label="Service gallery">
+        <div class="circ-ring" id="circ-ring"></div>
       </div>
+      <p class="circ-hint fade-in" data-i18n="gallery.hint">Tap any service to see our work</p>
     </div>
   </section>
+
+  <!-- Gallery service modal -->
+  <div class="gal-modal" id="gal-modal" role="dialog" aria-modal="true" aria-labelledby="gal-modal-title">
+    <div class="gal-modal-panel">
+      <button class="gal-modal-close" id="gal-modal-close" aria-label="Close">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h3 class="gal-modal-title" id="gal-modal-title"></h3>
+      <div class="gal-modal-grid" id="gal-modal-grid"></div>
+    </div>
+  </div>
 
   <!-- SERVICES -->
   <section id="services" class="section-pad">
@@ -1905,7 +1962,7 @@
       'f2.title':'Weather-Resistant Materials','f2.desc':'Commercial-grade aluminum built to withstand Florida\'s humidity, UV exposure, and storm conditions.',
       'f3.title':'Custom Fabrication','f3.desc':'Every structure is designed and built to your exact specifications — no cookie-cutter solutions.',
       'badge.text':'Happy Clients',
-      'gallery.label':'Our Work','gallery.title':'Recent Projects','gallery.cta':'Start Your Project',
+      'gallery.label':'Our Work','gallery.title':'Recent Projects','gallery.cta':'Start Your Project','gallery.hint':'Tap any service to see our work','gallery.soon':'Coming soon — more photos of our {name} projects.',
       'gp1':'Insulated Patio — Doral','gp2':'Pergola — Kendall','gp3':'Screen Enclosure — Hialeah','gp4':'Patio Room — Coral Gables','gp5':'Pergola — Homestead','gp6':'Insulated Patio — Pinecrest','gp7':'Custom Carport — Aventura',
       'why.label':'Why Choose Us','why.title':'Quality You Can See. Service You Can Trust.',
       'w1.title':'Free On-Site Estimate','w1.desc':'We visit your property, measure your space, and provide a detailed written quote — no cost, no obligation.',
@@ -2002,7 +2059,7 @@
       'f2.title':'Materiales Resistentes al Clima','f2.desc':'Aluminio de grado comercial que soporta la humedad, rayos UV y tormentas de Florida.',
       'f3.title':'Fabricación Personalizada','f3.desc':'Cada estructura es diseñada y construida a tus especificaciones exactas — sin soluciones genéricas.',
       'badge.text':'Clientes Satisfechos',
-      'gallery.label':'Nuestro Trabajo','gallery.title':'Proyectos Recientes','gallery.cta':'Inicia tu Proyecto',
+      'gallery.label':'Nuestro Trabajo','gallery.title':'Proyectos Recientes','gallery.cta':'Inicia tu Proyecto','gallery.hint':'Toca un servicio para ver nuestros proyectos','gallery.soon':'Próximamente — más fotos de {name}.',
       'gp1':'Terraza Insulada — Doral','gp2':'Pérgola — Kendall','gp3':'Screen Enclosure — Hialeah','gp4':'Casita de Patio — Coral Gables','gp5':'Pérgola — Homestead','gp6':'Terraza Insulada — Pinecrest','gp7':'Carport Personalizado — Aventura',
       'why.label':'Por Qué Elegirnos','why.title':'Calidad que se Ve. Servicio en que Confiar.',
       'w1.title':'Estimado Gratuito en tu Propiedad','w1.desc':'Visitamos tu propiedad, medimos el espacio y te damos una cotización detallada por escrito — sin costo, sin compromiso.',
@@ -2270,6 +2327,129 @@
     const fab = document.getElementById('whatsapp-fab');
     if (fab) fab.href = 'https://wa.me/13053085578?text=' + encodeURIComponent(msg);
   });
+
+  // ── Circular Gallery ──────────────────────────────
+  // photos[] will be populated when client provides image paths per service
+  const galleryServices = [
+    { id:'pergolas',   i18n:'s1.name', cover:'images/gallery-pergola-homestead.jpg', photos:[] },
+    { id:'screen',     i18n:'s2.name', cover:'images/gallery-screen-hialeah.jpg',    photos:[] },
+    { id:'insulated',  i18n:'s3.name', cover:'images/gallery-patio-doral.jpg',       photos:[] },
+    { id:'rooms',      i18n:'s4.name', cover:'images/gallery-room-coral-gables.jpg', photos:[] },
+    { id:'carports',   i18n:'s5.name', cover:'images/gallery-carport-aventura.jpg',  photos:[] },
+    { id:'fences',     i18n:'s6.name', cover:'images/gallery-screen-hialeah.jpg',    photos:[] },
+    { id:'glass',      i18n:'s7.name', cover:'images/gallery-patio-pinecrest.jpg',   photos:[] },
+    { id:'pet-suites', i18n:'s8.name', cover:'images/gallery-patio-doral.jpg',       photos:[] },
+    { id:'walls',      i18n:'s9.name', cover:'images/gallery-carport-aventura.jpg',  photos:[] },
+  ];
+
+  (function initCircularGallery() {
+    const ring  = document.getElementById('circ-ring');
+    const stage = document.getElementById('circ-stage');
+    if (!ring || !stage) return;
+
+    const N          = galleryServices.length;
+    const ANGLE_STEP = 360 / N;
+    const SPEED      = 0.18; // degrees per frame
+    let rotation     = 0;
+    let hovering     = false;
+    let modalOpen    = false;
+    let sectionVis   = true;
+
+    // Build cards
+    galleryServices.forEach((svc, i) => {
+      const angle = i * ANGLE_STEP;
+      const card  = document.createElement('div');
+      card.className   = 'circ-card';
+      card.tabIndex    = 0;
+      card.setAttribute('role', 'button');
+      card.style.transform = `rotateY(${angle}deg) translateZ(var(--radius))`;
+
+      const img = document.createElement('img');
+      img.src     = svc.cover;
+      img.loading = 'lazy';
+      img.addEventListener('contextmenu', e => e.preventDefault());
+      img.addEventListener('dragstart',   e => e.preventDefault());
+
+      const label = document.createElement('div');
+      label.className      = 'circ-card-label';
+      label.dataset.i18n   = svc.i18n; // picked up by setLang()
+
+      card.appendChild(img);
+      card.appendChild(label);
+
+      card.addEventListener('click',     () => openGalleryModal(svc));
+      card.addEventListener('keydown',   e  => { if (e.key==='Enter'||e.key===' ') openGalleryModal(svc); });
+      card.addEventListener('mouseenter',() => { hovering = true; });
+      card.addEventListener('mouseleave',() => { hovering = false; });
+      ring.appendChild(card);
+    });
+
+    // Opacity: front card = 1.0, back card = 0.25
+    function updateOpacity() {
+      ring.querySelectorAll('.circ-card').forEach((card, i) => {
+        const angle = i * ANGLE_STEP;
+        const rel   = ((angle + rotation) % 360 + 360) % 360;
+        const norm  = rel > 180 ? 360 - rel : rel;
+        card.style.opacity = (Math.max(0.25, 1 - norm / 190)).toFixed(3);
+      });
+    }
+
+    // Animation loop
+    function tick() {
+      if (sectionVis && !hovering && !modalOpen) {
+        rotation = (rotation + SPEED) % 360;
+        ring.style.transform = `rotateY(${rotation}deg)`;
+        updateOpacity();
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    // Pause when section scrolls out of view
+    new IntersectionObserver(entries => {
+      sectionVis = entries[0].isIntersecting;
+    }, { threshold: 0.05 }).observe(stage);
+
+    // ── Modal ────────────────────────────────────
+    const modal      = document.getElementById('gal-modal');
+    const modalTitle = document.getElementById('gal-modal-title');
+    const modalGrid  = document.getElementById('gal-modal-grid');
+    const modalClose = document.getElementById('gal-modal-close');
+
+    function openGalleryModal(svc) {
+      modalOpen = true;
+      const name = (document.querySelector(`[data-i18n="${svc.i18n}"]`)?.textContent || svc.id);
+      modalTitle.textContent = name;
+      modalGrid.innerHTML = '';
+
+      if (svc.photos.length === 0) {
+        const soon = i18n[lang]['gallery.soon'].replace('{name}', name.toLowerCase());
+        modalGrid.innerHTML = `<p class="gal-modal-empty">${soon}</p>`;
+      } else {
+        svc.photos.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src; img.alt = name; img.loading = 'lazy';
+          img.addEventListener('contextmenu', e => e.preventDefault());
+          img.addEventListener('dragstart',   e => e.preventDefault());
+          modalGrid.appendChild(img);
+        });
+      }
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGalleryModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      modalOpen = false;
+    }
+
+    modalClose.addEventListener('click', closeGalleryModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeGalleryModal(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modalOpen) closeGalleryModal();
+    });
+  })();
 
   // ── Init ──────────────────────────────────────────
   (function init() {
