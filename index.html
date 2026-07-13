@@ -538,6 +538,7 @@
       transform-origin: left;
       transition: transform var(--transition);
     }
+    .service-card { cursor: pointer; }
     .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
     .service-card:hover::after { transform: scaleX(1); }
     .service-icon {
@@ -1010,7 +1011,17 @@
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .form-row { grid-template-columns: 1fr; }
-      .footer-main { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem 1.5rem;
+        padding: 2.5rem 0 2rem;
+      }
+      .footer-main > div:first-child { grid-column: 1 / -1; }
+      .footer-brand { font-size: var(--text-xl); margin-bottom: 0.5rem; }
+      .footer-tagline { font-size: var(--text-xs); margin-bottom: 1rem; }
+      .footer-phone { font-size: var(--text-xl); }
+      .footer-heading { margin-bottom: 0.875rem; }
+      .footer-links { gap: 0.5rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .circ-stage { --radius: 310px; height: 420px; }
       .circ-card { width: 210px; height: 275px; margin-left: -105px; margin-top: -137px; }
@@ -1019,12 +1030,24 @@
       .gal-modal-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .about-badge { left: 0; }
+      /* Services — compact 2-col on mobile */
+      .services-header { margin-bottom: 2rem; }
+      .services-header .section-desc { font-size: var(--text-sm); }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .service-card { padding: 1.25rem 1rem; }
+      .service-icon { width: 40px; height: 40px; margin-bottom: 0.625rem; border-radius: 10px; }
+      .service-icon svg { width: 18px; height: 18px; }
+      .service-name { font-size: var(--text-base); margin-bottom: 0.375rem; }
+      .service-desc { font-size: 0.72rem; line-height: 1.55; }
     }
 
     @media (max-width: 480px) {
       .container { padding: 0 1.25rem; }
       .hero-ctas { flex-direction: column; align-items: center; }
-      .stats-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 0.75rem; }
+      #stats { padding: 2rem 0; }
+      .stat-num { font-size: clamp(2rem, 8vw, 2.75rem); margin-bottom: 0.375rem; }
+      .stat-label { font-size: 0.6rem; }
       #nav { padding: 1rem 1.25rem; }
       #nav.scrolled { padding: 0.875rem 1.25rem; }
       .nav-logo span { display: none; }
@@ -2513,10 +2536,26 @@
       scheduleResume();
     }
 
+    window.openGalleryModal = openGalleryModal;
+
     modalClose.addEventListener('click', closeGalleryModal);
     modal.addEventListener('click', e => { if (e.target === modal) closeGalleryModal(); });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && modalOpen) closeGalleryModal();
+    });
+  })();
+
+  // ── Service cards → open gallery modal ────────────
+  (function initServiceCardLinks() {
+    const grid = document.querySelector('.services-grid');
+    if (!grid) return;
+    grid.addEventListener('click', e => {
+      const card = e.target.closest('.service-card');
+      if (!card) return;
+      const idx = Array.from(grid.children).indexOf(card);
+      if (idx !== -1 && window.openGalleryModal) {
+        window.openGalleryModal(galleryServices[idx]);
+      }
     });
   })();
 
