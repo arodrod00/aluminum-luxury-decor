@@ -1544,8 +1544,7 @@
   <!-- WHY US -->
   <section id="why-us" class="section-pad-lg">
     <div class="container">
-      <div class="why-grid">
-        <div class="why-visual fade-in"><img src="images/gallery-room-coral-gables.jpg" alt="Aluminum structure showcase" loading="lazy"></div>
+      <div>
         <div>
           <p class="section-label fade-in" data-i18n="why.label">Why Choose Us</p>
           <h2 class="section-title fade-in fd1" data-i18n="why.title">Quality You Can See. Service You Can Trust.</h2>
@@ -2421,28 +2420,32 @@
     }
 
     // ── Pointer drag (mouse + touch via pointer events) ──
+    const DRAG_THRESHOLD = 6; // px before we commit to a drag
+    let pointerDown = false;
+    let didDrag = false;
+
     stage.addEventListener('pointerdown', e => {
-      // Ignore if click landed on a card button (let click handler fire)
-      if (e.target.closest('.circ-card')) {
-        dragStartX = e.clientX;
-        rotAtDrag  = rotation;
-        isDragging = false; // may become true on move
-        return;
-      }
-      isDragging = true;
-      dragStartX = e.clientX;
-      rotAtDrag  = rotation;
-      stage.classList.add('dragging');
+      pointerDown = true;
+      isDragging  = false;
+      didDrag     = false;
+      dragStartX  = e.clientX;
+      rotAtDrag   = rotation;
       stage.setPointerCapture(e.pointerId);
     });
 
     stage.addEventListener('pointermove', e => {
-      if (!isDragging) return;
+      if (!pointerDown) return;
       const delta = (e.clientX - dragStartX) * DRAG_FACTOR;
-      applyRotation(rotAtDrag + delta);
+      if (!isDragging && Math.abs(e.clientX - dragStartX) > DRAG_THRESHOLD) {
+        isDragging = true;
+        didDrag    = true;
+        stage.classList.add('dragging');
+      }
+      if (isDragging) applyRotation(rotAtDrag + delta);
     });
 
-    stage.addEventListener('pointerup', e => {
+    stage.addEventListener('pointerup', () => {
+      pointerDown = false;
       if (isDragging) {
         isDragging = false;
         stage.classList.remove('dragging');
@@ -2451,13 +2454,16 @@
     });
 
     stage.addEventListener('pointercancel', () => {
-      isDragging = false;
+      pointerDown = false;
+      isDragging  = false;
+      didDrag     = false;
       stage.classList.remove('dragging');
       scheduleResume();
     });
 
-    // Card click — only fires if pointer didn't move much (not a drag)
+    // Card click — only fires if pointer didn't drag
     stage.addEventListener('click', e => {
+      if (didDrag) { didDrag = false; return; }
       const card = e.target.closest('.circ-card');
       if (!card) return;
       const idx = Array.from(ring.children).indexOf(card);
