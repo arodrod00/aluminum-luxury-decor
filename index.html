@@ -2417,7 +2417,7 @@
     { id:'screen',     i18n:'s2.name', cover:'images/gallery-screen-hialeah.jpg',    photos:[] },
     { id:'insulated',  i18n:'s3.name', cover:'images/gallery-patio-doral.jpg',       photos:[] },
     { id:'rooms',      i18n:'s4.name', cover:'images/gallery-room-coral-gables.jpg', photos:[] },
-    { id:'carports',   i18n:'s5.name', cover:'images/gallery-carport-aventura.jpg',  photos:[] },
+    { id:'carports',   i18n:'s5.name', cover:'images/gallery-carport-aventura.jpg',  photos:[], noCarousel:true },
     { id:'fences',     i18n:'s6.name', cover:'images/gallery-screen-hialeah.jpg',    photos:[] },
     { id:'glass',      i18n:'s7.name', cover:'images/gallery-patio-pinecrest.jpg',   photos:[] },
     { id:'pet-suites', i18n:'s8.name', cover:'images/gallery-patio-doral.jpg',       photos:[] },
@@ -2429,7 +2429,8 @@
     const stage = document.getElementById('circ-stage');
     if (!ring || !stage) return;
 
-    const N           = galleryServices.length;
+    const visibleServices = galleryServices.filter(s => !s.noCarousel);
+    const N           = visibleServices.length;
     const ANGLE_STEP  = 360 / N;
     const SPEED       = 0.18;       // deg per frame during auto-spin
     const DRAG_FACTOR = 0.55;       // px → degrees conversion
@@ -2445,12 +2446,13 @@
     let userPaused  = false; // true while in manual-pause window
 
     // ── Build cards ──────────────────────────────
-    galleryServices.forEach((svc, i) => {
+    visibleServices.forEach((svc, i) => {
       const angle = i * ANGLE_STEP;
       const card  = document.createElement('div');
       card.className = 'circ-card';
       card.tabIndex  = 0;
       card.setAttribute('role', 'button');
+      card.dataset.serviceIdx = galleryServices.indexOf(svc);
       card.style.transform = `rotateY(${angle}deg) translateZ(var(--radius))`;
 
       const img = document.createElement('img');
@@ -2547,8 +2549,8 @@
       if (didDrag) { didDrag = false; return; }
       const card = e.target.closest('.circ-card');
       if (!card) return;
-      const idx = Array.from(ring.children).indexOf(card);
-      if (idx !== -1) {
+      const idx = parseInt(card.dataset.serviceIdx, 10);
+      if (!isNaN(idx)) {
         scheduleResume();
         openGalleryModal(galleryServices[idx]);
       }
