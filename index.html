@@ -690,7 +690,7 @@
     }
     /* 3D stage — perspective lives here */
     .circ-stage {
-      --radius: 560px;
+      --radius: 620px;
       position: relative;
       width: 100%; height: 600px;
       display: flex; align-items: center; justify-content: center;
@@ -1084,7 +1084,7 @@
     @media (max-width: 1024px) {
       .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 3.5rem; }
       .footer-main { grid-template-columns: 1fr 1fr; }
-      .circ-stage { --radius: 460px; height: 520px; }
+      .circ-stage { --radius: 520px; height: 580px; }
       .circ-card { width: 260px; height: 340px; margin-left: -130px; margin-top: -170px; }
       .why-visual { aspect-ratio: 3/2; }
     }
@@ -1127,8 +1127,8 @@
       .footer-heading { margin-bottom: 0.875rem; }
       .footer-links { gap: 0.5rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .circ-stage { --radius: 310px; height: 420px; }
-      .circ-card { width: 210px; height: 275px; margin-left: -105px; margin-top: -137px; }
+      .circ-stage { --radius: 400px; height: 460px; }
+      .circ-card { width: 200px; height: 260px; margin-left: -100px; margin-top: -130px; }
       .circ-card-label { font-size: var(--text-base); padding: 1rem 0.875rem 0.875rem; }
       .gallery-header { flex-direction: column; align-items: flex-start; }
       .gal-modal-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1698,6 +1698,11 @@
           <h3 class="service-name" data-i18n="s9.name">Decorative Walls</h3>
           <p class="service-desc" data-i18n="s9.desc">Custom decorative aluminum wall panels that add style, privacy, and character to any outdoor space. Durable, low-maintenance, and fully customizable.</p>
         </div>
+        <div class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div>
+          <h3 class="service-name" data-i18n="s10.name">Water Channels</h3>
+          <p class="service-desc" data-i18n="s10.desc">Custom aluminum water channels and drainage systems designed to protect your property. Durable, low-maintenance solutions built for South Florida's heavy rains.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1979,7 +1984,8 @@
               <option value="fence" data-i18n="form.svc7">Fence</option>
               <option value="pet-suite" data-i18n="form.svc8">Pet Suite</option>
               <option value="decorative-walls" data-i18n="form.svc9">Decorative Walls</option>
-              <option value="other" data-i18n="form.svc10">Other / Not Sure</option>
+              <option value="water-channels" data-i18n="form.svc10">Water Channels</option>
+              <option value="other" data-i18n="form.svc11">Other / Not Sure</option>
             </select>
           </div>
           <div class="form-group">
@@ -2015,6 +2021,7 @@
             <li><a href="#services" data-i18n="footer.s5">Storage</a></li>
             <li><a href="#services" data-i18n="footer.s6">Fences</a></li>
             <li><a href="#services" data-i18n="footer.s7">Pet Suites</a></li>
+            <li><a href="#services" data-i18n="footer.s8">Water Channels</a></li>
           </ul>
         </div>
         <div>
@@ -2165,12 +2172,13 @@
       'ci1.label':'Phone','ci2.label':'Service Area','ci2.val':'Miami-Dade, Broward & Palm Beach Counties',
       'ci3.label':'Hours','ci3.val':'Mon – Sat: 8:00 AM – 6:00 PM','ci4.label':'Follow Us',
       'form.name':'Full Name *','form.phone':'Phone *','form.email':'Email','form.service':'Service Interested In *',
-      'form.svc0':'Select a service...','form.svc1':'Modern Pergola','form.svc2':'Terrace','form.svc3':'Bathroom','form.svc4':'Patio Room','form.svc5':'Screen Enclosure','form.svc6':'Storage','form.svc7':'Fence','form.svc8':'Pet Suite','form.svc9':'Decorative Walls','form.svc10':'Other / Not Sure',
+      'form.svc0':'Select a service...','form.svc1':'Modern Pergola','form.svc2':'Terrace','form.svc3':'Bathroom','form.svc4':'Patio Room','form.svc5':'Screen Enclosure','form.svc6':'Storage','form.svc7':'Fence','form.svc8':'Pet Suite','form.svc9':'Decorative Walls','form.svc10':'Water Channels','form.svc11':'Other / Not Sure',
       's9.name':'Decorative Walls','s9.desc':'Custom decorative aluminum wall panels that add style, privacy, and character to any outdoor space. Durable, low-maintenance, and fully customizable.',
+      's10.name':'Water Channels','s10.desc':'Custom aluminum water channels and drainage systems designed to protect your property. Durable, low-maintenance solutions built for South Florida\'s heavy rains.',
       'form.msg':'Tell Us About Your Project','form.submit':'Send Quote Request','form.note':'We\'ll respond within 24 hours. No spam, ever.',
       'footer.tagline':'South Florida\'s premium aluminum structure specialists — pergolas, insulated patios, screen enclosures, and patio rooms.',
       'footer.h1':'Services','footer.h2':'Company',
-      'footer.s1':'Modern Pergolas','footer.s2':'Terraces','footer.s3':'Patio Rooms','footer.s4':'Screen Enclosures','footer.s5':'Storage','footer.s6':'Fences','footer.s7':'Pet Suites',
+      'footer.s1':'Modern Pergolas','footer.s2':'Terraces','footer.s3':'Patio Rooms','footer.s4':'Screen Enclosures','footer.s5':'Storage','footer.s6':'Fences','footer.s7':'Pet Suites','footer.s8':'Water Channels',
       'footer.about':'About Us','footer.gallery':'Gallery','footer.contact':'Contact',
       'footer.privacy':'Privacy Policy','footer.terms':'Terms of Service',
       'priv.title':'Privacy Policy','priv.date':'Last updated: June 2026',
@@ -2263,12 +2271,13 @@
       'ci1.label':'Teléfono','ci2.label':'Área de Servicio','ci2.val':'Condados de Miami-Dade, Broward y Palm Beach',
       'ci3.label':'Horario','ci3.val':'Lun – Sáb: 8:00 AM – 6:00 PM','ci4.label':'Síguenos',
       'form.name':'Nombre Completo *','form.phone':'Teléfono *','form.email':'Correo Electrónico','form.service':'Servicio de Interés *',
-      'form.svc0':'Selecciona un servicio...','form.svc1':'Pérgola Moderna','form.svc2':'Terraza','form.svc3':'Baño','form.svc4':'Casita de Patio','form.svc5':'Screen Enclosure','form.svc6':'Almacenamiento','form.svc7':'Cerca','form.svc8':'Pet Suite','form.svc9':'Paredes Decorativas','form.svc10':'Otro / No Estoy Seguro',
+      'form.svc0':'Selecciona un servicio...','form.svc1':'Pérgola Moderna','form.svc2':'Terraza','form.svc3':'Baño','form.svc4':'Casita de Patio','form.svc5':'Screen Enclosure','form.svc6':'Almacenamiento','form.svc7':'Cerca','form.svc8':'Pet Suite','form.svc9':'Paredes Decorativas','form.svc10':'Canales de Agua','form.svc11':'Otro / No Estoy Seguro',
       's9.name':'Paredes Decorativas','s9.desc':'Paneles decorativos de aluminio a medida que añaden estilo, privacidad y carácter a cualquier espacio exterior. Duraderos, de bajo mantenimiento y totalmente personalizables.',
+      's10.name':'Canales de Agua','s10.desc':'Canales de agua y sistemas de drenaje de aluminio a medida para proteger tu propiedad. Soluciones duraderas y de bajo mantenimiento diseñadas para las lluvias intensas de South Florida.',
       'form.msg':'Cuéntanos sobre tu Proyecto','form.submit':'Enviar Solicitud de Cotización','form.note':'Responderemos en 24 horas. Sin spam, nunca.',
       'footer.tagline':'Especialistas premium en estructuras de aluminio en South Florida — pérgolas, terrazas insuladas, screen enclosures y casitas de patio.',
       'footer.h1':'Servicios','footer.h2':'Empresa',
-      'footer.s1':'Pérgolas Modernas','footer.s2':'Terrazas','footer.s3':'Casitas de Patio','footer.s4':'Screen Enclosures','footer.s5':'Almacenamiento','footer.s6':'Cercas','footer.s7':'Pet Suites',
+      'footer.s1':'Pérgolas Modernas','footer.s2':'Terrazas','footer.s3':'Casitas de Patio','footer.s4':'Screen Enclosures','footer.s5':'Almacenamiento','footer.s6':'Cercas','footer.s7':'Pet Suites','footer.s8':'Canales de Agua',
       'footer.about':'Nosotros','footer.gallery':'Galería','footer.contact':'Contacto',
       'footer.privacy':'Política de Privacidad','footer.terms':'Términos de Servicio',
       'priv.title':'Política de Privacidad','priv.date':'Última actualización: junio 2026',
@@ -2519,15 +2528,16 @@
   // ── Circular Gallery ──────────────────────────────
   // photos[] will be populated when client provides image paths per service
   const galleryServices = [
-    { id:'pergolas',   i18n:'s1.name', cover:'images/svc-pergola-1-cover.jpg',  photos:['images/svc-pergola-1.jpg','images/svc-pergola-2.jpg','images/svc-pergola-3.jpg','images/svc-pergola-4.jpg','images/svc-pergola-5.jpg','images/svc-pergola-6.jpg','images/svc-pergola-7.jpg','images/svc-pergola-8.jpg','images/svc-pergola-9.jpg','images/svc-pergola-10.jpg','images/svc-pergola-11.jpg','images/svc-pergola-12.jpg','images/svc-pergola-13.jpg'] },
-    { id:'screen',     i18n:'s2.name', cover:'images/svc-terraza-1-cover.jpg',  photos:['images/svc-terraza-1.jpg','images/svc-terraza-2.jpg','images/svc-terraza-3.jpg','images/svc-terraza-4.jpg'] },
+    { id:'pergolas',   i18n:'s1.name', cover:'images/svc-pergola-1-cover.jpg',  photos:['images/svc-pergola-1.jpg','images/svc-pergola-2.jpg','images/svc-pergola-3.jpg','images/svc-pergola-4.jpg','images/svc-pergola-5.jpg','images/svc-pergola-6.jpg','images/svc-pergola-7.jpg','images/svc-pergola-8.jpg','images/svc-pergola-9.jpg','images/svc-pergola-10.jpg','images/svc-pergola-11.jpg','images/svc-pergola-12.jpg','images/svc-pergola-13.jpg','images/svc-pergola-14.jpg','images/svc-pergola-15.jpg','images/svc-pergola-16.jpg','images/svc-pergola-17.jpg','images/svc-pergola-18.jpg','images/svc-pergola-19.jpg','images/svc-pergola-20.jpg'] },
+    { id:'screen',     i18n:'s2.name', cover:'images/svc-terraza-1-cover.jpg',  photos:['images/svc-terraza-1.jpg','images/svc-terraza-2.jpg','images/svc-terraza-3.jpg','images/svc-terraza-4.jpg','images/svc-terraza-5.jpg','images/svc-terraza-6.jpg','images/svc-terraza-7.jpg'] },
     { id:'insulated',  i18n:'s3.name', cover:'images/svc-banio-1-cover.jpg',    photos:['images/svc-banio-1.jpg','images/svc-banio-2.jpg','images/svc-banio-3.jpg','images/svc-banio-4.jpg','images/svc-banio-5.jpg','images/svc-banio-6.jpg','images/svc-banio-7.jpg','images/svc-banio-8.jpg','images/svc-banio-9.jpg'] },
     { id:'rooms',      i18n:'s4.name', cover:'images/svc-patio-1-cover.jpg',    photos:['images/svc-patio-1.jpg','images/svc-patio-2.jpg','images/svc-patio-3.jpg','images/svc-patio-4.jpg','images/svc-patio-5.jpg','images/svc-patio-6.jpg','images/svc-patio-7.jpg'] },
     { id:'carports',   i18n:'s5.name', cover:'images/svc-screen-1-cover.jpg',   photos:['images/svc-screen-1.jpg','images/svc-screen-2.jpg','images/svc-screen-3.jpg','images/svc-screen-4.jpg','images/svc-screen-5.jpg','images/svc-screen-6.jpg','images/svc-screen-7.jpg'] },
     { id:'fences',     i18n:'s6.name', cover:'images/svc-storage-1-cover.jpg',  photos:['images/svc-storage-1.jpg','images/svc-storage-2.jpg','images/svc-storage-3.jpg','images/svc-storage-4.jpg','images/svc-storage-5.jpg','images/svc-storage-6.jpg','images/svc-storage-7.jpg','images/svc-storage-8.jpg'] },
     { id:'glass',      i18n:'s7.name', cover:'images/svc-cerca-1-cover.jpg',    photos:['images/svc-cerca-1.jpg','images/svc-cerca-2.jpg','images/svc-cerca-3.jpg','images/svc-cerca-4.jpg','images/svc-cerca-5.jpg','images/svc-cerca-6.jpg','images/svc-cerca-7.jpg','images/svc-cerca-8.jpg','images/svc-cerca-9.jpg','images/svc-cerca-10.jpg','images/svc-cerca-11.jpg','images/svc-cerca-12.jpg'] },
     { id:'pet-suites', i18n:'s8.name', cover:'images/svc-perro-1-cover.jpg',    photos:['images/svc-perro-1.jpg','images/svc-perro-2.jpg','images/svc-perro-3.jpg'] },
-    { id:'walls',      i18n:'s9.name', cover:'images/svc-pared-1-cover.jpg',    photos:['images/svc-pared-1.jpg','images/svc-pared-2.jpg','images/svc-pared-3.jpg','images/svc-pared-4.jpg','images/svc-pared-5.jpg','images/svc-pared-6.jpg','images/svc-pared-7.jpg','images/svc-pared-8.jpg'] },
+    { id:'walls',      i18n:'s9.name',  cover:'images/svc-pared-1-cover.jpg',   photos:['images/svc-pared-1.jpg','images/svc-pared-2.jpg','images/svc-pared-3.jpg','images/svc-pared-4.jpg','images/svc-pared-5.jpg','images/svc-pared-6.jpg','images/svc-pared-7.jpg','images/svc-pared-8.jpg'] },
+    { id:'canales',    i18n:'s10.name', cover:'images/svc-canal-1-cover.jpg',   photos:['images/svc-canal-1.jpg','images/svc-canal-2.jpg','images/svc-canal-3.jpg','images/svc-canal-4.jpg','images/svc-canal-5.jpg','images/svc-canal-6.jpg','images/svc-canal-7.jpg','images/svc-canal-8.jpg','images/svc-canal-9.jpg','images/svc-canal-10.jpg','images/svc-canal-11.jpg','images/svc-canal-12.jpg','images/svc-canal-13.jpg','images/svc-canal-14.jpg','images/svc-canal-15.jpg','images/svc-canal-16.jpg','images/svc-canal-17.jpg','images/svc-canal-18.jpg','images/svc-canal-19.jpg','images/svc-canal-20.jpg'] },
   ];
 
   (function initCircularGallery() {
