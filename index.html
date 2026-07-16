@@ -2519,15 +2519,15 @@
   // ── Circular Gallery ──────────────────────────────
   // photos[] will be populated when client provides image paths per service
   const galleryServices = [
-    { id:'pergolas',   i18n:'s1.name', cover:'images/svc-pergola-1.jpg', photos:['images/svc-pergola-1.jpg','images/svc-pergola-2.jpg','images/svc-pergola-3.jpg','images/svc-pergola-4.jpg','images/svc-pergola-5.jpg','images/svc-pergola-6.jpg','images/svc-pergola-7.jpg','images/svc-pergola-8.jpg'] },
-    { id:'screen',     i18n:'s2.name', cover:'images/svc-terraza-1.jpg', photos:['images/svc-terraza-1.jpg','images/svc-terraza-2.jpg','images/svc-terraza-3.jpg','images/svc-terraza-4.jpg'] },
-    { id:'insulated',  i18n:'s3.name', cover:'images/svc-banio-1.jpg',   photos:['images/svc-banio-1.jpg','images/svc-banio-2.jpg','images/svc-banio-3.jpg','images/svc-banio-4.jpg','images/svc-banio-5.jpg','images/svc-banio-6.jpg'] },
-    { id:'rooms',      i18n:'s4.name', cover:'images/svc-patio-1.jpg',   photos:['images/svc-patio-1.jpg','images/svc-patio-2.jpg','images/svc-patio-3.jpg','images/svc-patio-4.jpg','images/svc-patio-5.jpg'] },
-    { id:'carports',   i18n:'s5.name', cover:'images/svc-screen-1.jpg', photos:['images/svc-screen-1.jpg','images/svc-screen-2.jpg','images/svc-screen-3.jpg','images/svc-screen-4.jpg','images/svc-screen-5.jpg','images/svc-screen-6.jpg','images/svc-screen-7.jpg'] },
-    { id:'fences',     i18n:'s6.name', cover:'images/svc-storage-1.jpg', photos:['images/svc-storage-1.jpg','images/svc-storage-2.jpg','images/svc-storage-3.jpg','images/svc-storage-4.jpg'] },
-    { id:'glass',      i18n:'s7.name', cover:'images/svc-cerca-1.jpg',   photos:['images/svc-cerca-1.jpg','images/svc-cerca-2.jpg','images/svc-cerca-3.jpg','images/svc-cerca-4.jpg','images/svc-cerca-5.jpg'] },
-    { id:'pet-suites', i18n:'s8.name', cover:'images/svc-perro-1.jpg',   photos:['images/svc-perro-1.jpg','images/svc-perro-2.jpg'] },
-    { id:'walls',      i18n:'s9.name', cover:'images/svc-pared-1.jpg',   photos:['images/svc-pared-1.jpg','images/svc-pared-2.jpg','images/svc-pared-3.jpg','images/svc-pared-4.jpg','images/svc-pared-5.jpg','images/svc-pared-6.jpg','images/svc-pared-7.jpg'] },
+    { id:'pergolas',   i18n:'s1.name', cover:'images/svc-pergola-1-cover.jpg',  photos:['images/svc-pergola-1.jpg','images/svc-pergola-2.jpg','images/svc-pergola-3.jpg','images/svc-pergola-4.jpg','images/svc-pergola-5.jpg','images/svc-pergola-6.jpg','images/svc-pergola-7.jpg','images/svc-pergola-8.jpg','images/svc-pergola-9.jpg','images/svc-pergola-10.jpg','images/svc-pergola-11.jpg','images/svc-pergola-12.jpg','images/svc-pergola-13.jpg'] },
+    { id:'screen',     i18n:'s2.name', cover:'images/svc-terraza-1-cover.jpg',  photos:['images/svc-terraza-1.jpg','images/svc-terraza-2.jpg','images/svc-terraza-3.jpg','images/svc-terraza-4.jpg'] },
+    { id:'insulated',  i18n:'s3.name', cover:'images/svc-banio-1-cover.jpg',    photos:['images/svc-banio-1.jpg','images/svc-banio-2.jpg','images/svc-banio-3.jpg','images/svc-banio-4.jpg','images/svc-banio-5.jpg','images/svc-banio-6.jpg','images/svc-banio-7.jpg','images/svc-banio-8.jpg','images/svc-banio-9.jpg'] },
+    { id:'rooms',      i18n:'s4.name', cover:'images/svc-patio-1-cover.jpg',    photos:['images/svc-patio-1.jpg','images/svc-patio-2.jpg','images/svc-patio-3.jpg','images/svc-patio-4.jpg','images/svc-patio-5.jpg','images/svc-patio-6.jpg','images/svc-patio-7.jpg'] },
+    { id:'carports',   i18n:'s5.name', cover:'images/svc-screen-1-cover.jpg',   photos:['images/svc-screen-1.jpg','images/svc-screen-2.jpg','images/svc-screen-3.jpg','images/svc-screen-4.jpg','images/svc-screen-5.jpg','images/svc-screen-6.jpg','images/svc-screen-7.jpg'] },
+    { id:'fences',     i18n:'s6.name', cover:'images/svc-storage-1-cover.jpg',  photos:['images/svc-storage-1.jpg','images/svc-storage-2.jpg','images/svc-storage-3.jpg','images/svc-storage-4.jpg','images/svc-storage-5.jpg','images/svc-storage-6.jpg','images/svc-storage-7.jpg','images/svc-storage-8.jpg'] },
+    { id:'glass',      i18n:'s7.name', cover:'images/svc-cerca-1-cover.jpg',    photos:['images/svc-cerca-1.jpg','images/svc-cerca-2.jpg','images/svc-cerca-3.jpg','images/svc-cerca-4.jpg','images/svc-cerca-5.jpg','images/svc-cerca-6.jpg','images/svc-cerca-7.jpg','images/svc-cerca-8.jpg','images/svc-cerca-9.jpg','images/svc-cerca-10.jpg','images/svc-cerca-11.jpg','images/svc-cerca-12.jpg'] },
+    { id:'pet-suites', i18n:'s8.name', cover:'images/svc-perro-1-cover.jpg',    photos:['images/svc-perro-1.jpg','images/svc-perro-2.jpg','images/svc-perro-3.jpg'] },
+    { id:'walls',      i18n:'s9.name', cover:'images/svc-pared-1-cover.jpg',    photos:['images/svc-pared-1.jpg','images/svc-pared-2.jpg','images/svc-pared-3.jpg','images/svc-pared-4.jpg','images/svc-pared-5.jpg','images/svc-pared-6.jpg','images/svc-pared-7.jpg','images/svc-pared-8.jpg'] },
   ];
 
   (function initCircularGallery() {
